@@ -1,5 +1,7 @@
 ### Tuntikirjanpito
 Päivä | Tunnit | Kuvaus
 --------------- | ----- | ------
-01.01.2016 | 1.5h | Aiheen suunnittelua ja repon luonti
+07.09.2016 | 0.5h | Aiheen valkinta ja repositoryn luonti
+--------------- | ----- | ------
+08.09.2016 | 2h | Repositoryn kloonaus, synlkkaus koneelle ja dokumentointia
 ... | ... | ...
