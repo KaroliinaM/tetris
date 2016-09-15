@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tetris.muntetris;
 
 import java.util.ArrayList;
@@ -13,12 +12,11 @@ import java.util.ArrayList;
  * @author kmietola
  */
 public class Rivi {
-    private ArrayList<Integer> rivi; 
-    
-    public Rivi()
-    {
-      this.rivi=new ArrayList<Integer>();  
+
+    private ArrayList<Integer> rivi;
+
+    public Rivi() {
+        this.rivi = new ArrayList<Integer>();
     }
-    
-    
+
 }
