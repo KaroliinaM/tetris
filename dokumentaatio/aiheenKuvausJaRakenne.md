@@ -1,1 +1,1 @@
-![luokkakaavio](/Tetris.ekaversio.png)
+![luokkakaavio](Tetris.ekaversio.png)
