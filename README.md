@@ -8,4 +8,4 @@
 
 [Dokumentti tyylin tarkistuksesta](dokumentaatio/checkstyle.html)
 
-[Luokkakaavio](dokumentaatio/aiheenkuvausjarakenne.md)
+[Luokkakaavio](dokumentaatio/aiheenKuvausJaRakenne.md)
