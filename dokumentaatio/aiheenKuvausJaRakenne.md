@@ -1,1 +1,1 @@
-![luokkakaavio](Tetris_ekaversio.png)
+![luokkakaavio](luokkakaavio.png)

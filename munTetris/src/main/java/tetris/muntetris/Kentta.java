@@ -13,10 +13,17 @@ public class Kentta {
 
     private int leveys;
     private int korkeus;
+    private int alin;
 
     public Kentta() {
         this.leveys = 12;
         this.korkeus = 30;
+        this.alin = 0;
+
+    }
+
+    public int getAlin() {
+        return alin;
     }
 
 }

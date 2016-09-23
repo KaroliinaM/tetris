@@ -13,10 +13,21 @@ import java.util.ArrayList;
  */
 public class Rivi {
 
-    private ArrayList<Integer> rivi;
+    private ArrayList<Boolean> rivi;
 
     public Rivi() {
-        this.rivi = new ArrayList<Integer>();
+        this.rivi = new ArrayList<Boolean>();
+        for (int i = 0; i < 12; i++) {
+            this.rivi.add(i, Boolean.FALSE);
+        }
+    }
+
+    public void asetaPalikka(int x) {
+        this.rivi.add(x, Boolean.TRUE);
+    }
+
+    public ArrayList annaRivi() {
+        return this.rivi;
     }
 
 }

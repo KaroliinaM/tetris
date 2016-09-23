@@ -5,4 +5,5 @@ Päivä | Tunnit | Kuvaus
 08.09.2016 | 4h | Varsinaisen projektin luominen ja dokumentoinnin aloitus
 14.09.2016 | 5h | Ensimmäisen luokan ja testien luomista
 08.09.2016 | 4h | Jatkoa eilisestä ja mutaatiotestejä
-... | ... | ...
+22.09.2016 | 2h | peliluokan luominen
+22.09.2016 | 3h | pit-testit hajosivat, jokin konstruktorissa rikkoo ne. korjaaminen menee ensi viikkoon

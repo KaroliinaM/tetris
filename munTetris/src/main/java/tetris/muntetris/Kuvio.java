@@ -41,63 +41,63 @@ public class Kuvio {
             palikat.add(neljaspalikka);
         } else if (tyyppi == 1) { //pitkä
 
-            this.ekapalikka = new Palikka(6, 0);
+            this.ekapalikka = new Palikka(6, 26);
             palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(6, 1);
+            this.tokapalikka = new Palikka(6, 27);
             palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 2);
+            this.kolmaspalikka = new Palikka(6, 28);
             palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(6, 3);
+            this.neljaspalikka = new Palikka(6, 29);
             palikat.add(neljaspalikka);
         } else if (tyyppi == 2) { //l oikealle
 
-            this.ekapalikka = new Palikka(6, 0);
+            this.ekapalikka = new Palikka(6, 26);
             palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 0);
+            this.tokapalikka = new Palikka(7, 26);
             palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 1);
+            this.kolmaspalikka = new Palikka(6, 27);
             palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(6, 2);
+            this.neljaspalikka = new Palikka(6, 28);
             palikat.add(neljaspalikka);
         } else if (tyyppi == 3) { //l vasemmalle
 
-            this.ekapalikka = new Palikka(6, 0);
+            this.ekapalikka = new Palikka(6, 26);
             palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 0);
+            this.tokapalikka = new Palikka(7, 26);
             palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(7, 1);
+            this.kolmaspalikka = new Palikka(7, 27);
             palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(7, 2);
+            this.neljaspalikka = new Palikka(7, 28);
             palikat.add(neljaspalikka);
         } else if (tyyppi == 4) { //suunnikas oikealle
 
-            this.ekapalikka = new Palikka(6, 0);
+            this.ekapalikka = new Palikka(6, 26);
             palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 0);
+            this.tokapalikka = new Palikka(7, 26);
             palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(7, 1);
+            this.kolmaspalikka = new Palikka(7, 27);
             palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(8, 1);
+            this.neljaspalikka = new Palikka(8, 27);
             palikat.add(neljaspalikka);
         } else if (tyyppi == 5) { //suunnikas vasemmalle
 
-            this.ekapalikka = new Palikka(7, 0);
+            this.ekapalikka = new Palikka(7, 26);
             palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 1);
+            this.tokapalikka = new Palikka(7, 27);
             palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 1);
+            this.kolmaspalikka = new Palikka(6, 27);
             palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(6, 2);
+            this.neljaspalikka = new Palikka(6, 28);
             palikat.add(neljaspalikka);
         } else if (tyyppi == 6) { //kolmipiikki
 
-            this.ekapalikka = new Palikka(6, 0);
+            this.ekapalikka = new Palikka(6, 26);
             palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 0);
+            this.tokapalikka = new Palikka(7, 26);
             palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(8, 0);
+            this.kolmaspalikka = new Palikka(8, 26);
             palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(7, 1);
+            this.neljaspalikka = new Palikka(7, 27);
             palikat.add(neljaspalikka);
         }
 
@@ -159,6 +159,29 @@ public class Kuvio {
         }
         return vasemmalla;
     }
+
+    public Palikka sijaintiAlhaalla() {
+        Palikka alhaalla = palikat.get(0);
+        for (int i = 1; i < palikat.size(); i++) {
+            if (palikat.get(i).getY() < alhaalla.getY()) {
+                alhaalla = palikat.get(i);
+            }
+        }
+        return alhaalla;
+    }
+
+    public int palikanKorkeus() {
+        int korkeus = 1;
+        int ylin = this.sijaintiAlhaalla().getY();
+
+        for (int i = 0; i < this.palikat.size(); i++) {
+            if (this.palikat.get(i).getY() > ylin) {
+                korkeus += ylin - this.palikat.get(i).getY();
+            }
+        }
+        return korkeus;
+    }
+
 
     public void kierra() {
         if (this.tyyppi == 1) {
@@ -256,15 +279,19 @@ public class Kuvio {
 
         }
         if (this.tyyppi == 3) {
+            System.out.println();
 
         }
         if (this.tyyppi == 4) {
+            System.out.println();
 
         }
         if (this.tyyppi == 5) {
+            System.out.println();
 
         }
         if (this.tyyppi == 6) {
+            System.out.println();
 
         }
     }
@@ -275,6 +302,14 @@ public class Kuvio {
         }
         while (this.sijaintiVasemmalla().getX() < 0) {
             this.liikutaOikealle();
+        }
+    }
+
+    public void liiku() {
+        for (int i = 0; i < this.palikat.size(); i++) {
+            int laskeva = this.palikat.get(i).getY();
+            laskeva--;
+            this.palikat.get(i).setY(laskeva);
         }
     }
 
