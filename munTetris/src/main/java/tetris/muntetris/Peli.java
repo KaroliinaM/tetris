@@ -10,40 +10,31 @@ import java.util.ArrayList;
 /**
  *
  * @author kmietola
+ * 
+ * Tästä on tarkoitus tulla peliluokka.
  */
 public class Peli {
 
     private Kentta kentta;
     private boolean loppu;
     private Kuvio kuvio;
-    
 
     public Peli() {
         this.loppu = false;
         this.kentta = new Kentta();
-        
-        
-        while(loppu==false)
-        {
-            this.kuvio=new Kuvio();
-            while(this.kuvio.sijaintiAlhaalla().getY()<0)
-            {
+
+        while (loppu == false) {
+            this.kuvio = new Kuvio();
+            while (this.kuvio.sijaintiAlhaalla().getY() < 0) {
                 this.kuvio.liiku();
-                try{
-                Thread.sleep(1024);
-                }catch(Exception e)
-                {
+                try {
+                    Thread.sleep(1024);
+                } catch (Exception e) {
                     System.out.println("virhe palikan liikkumisessa");
                 }
             }
-            
-            
-            
-            
-            
-            
+
         }
-        
 
     }
 

@@ -8,6 +8,8 @@ package tetris.muntetris;
 /**
  *
  * @author kmietola
+ * 
+ * Tetriksen kuvioiden perusosa luokkana.
  */
 public class Palikka {
 

@@ -11,6 +11,8 @@ import java.util.Random;
 /**
  *
  * @author kmietola
+ * 
+ * Tetriksen kuvio, niitä on kuutta erilaista.
  */
 public class Kuvio {
 
@@ -172,17 +174,16 @@ public class Kuvio {
 
     public int kuvionKorkeus() {
         int korkeus = 0;
-        int alin = this.sijaintiAlhaalla().getY()-1;
+        int alin = this.sijaintiAlhaalla().getY() - 1;
 
         for (int i = 0; i < this.palikat.size(); i++) {
             if (this.palikat.get(i).getY() > alin) {
-                korkeus = this.palikat.get(i).getY()-alin;
+                korkeus = this.palikat.get(i).getY() - alin;
             }
         }
-        alin-=korkeus;
+        alin -= korkeus;
         return korkeus;
     }
-
 
     public void kierra() {
         if (this.tyyppi == 1) {
@@ -305,14 +306,12 @@ public class Kuvio {
             this.liikutaOikealle();
         }
     }
-    public int leveys(int kohta)
-    {
-        int leveys=0;
-        kohta+=this.sijaintiAlhaalla().getY();
-        for(int i=0; i<this.palikat.size(); i++)
-        {
-            if(this.palikat.get(i).getY()==kohta)
-            {
+
+    public int leveys(int kohta) {
+        int leveys = 0;
+        kohta += this.sijaintiAlhaalla().getY();
+        for (int i = 0; i < this.palikat.size(); i++) {
+            if (this.palikat.get(i).getY() == kohta) {
                 leveys++;
             }
         }

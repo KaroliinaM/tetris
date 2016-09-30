@@ -8,6 +8,8 @@ package tetris.muntetris;
 /**
  *
  * @author kmietola
+ * 
+ * Tetriksen kenttä.
  */
 public class Kentta {
 
@@ -25,10 +27,9 @@ public class Kentta {
     public int getAlin() {
         return alin;
     }
-    public void setAlin(int x)
-    {
-        this.alin=x;
+
+    public void setAlin(int x) {
+        this.alin = x;
     }
-    
 
 }

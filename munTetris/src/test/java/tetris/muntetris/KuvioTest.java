@@ -38,8 +38,7 @@ public class KuvioTest {
     }
 
     /**
-     * @After public void tearDown() {
-    }*
+     * @After public void tearDown() { }*
      */
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
@@ -298,10 +297,9 @@ public class KuvioTest {
         assertEquals(true, testi);
 
     }
-    
+
     @Test
-    public void kuvionKorkeus()
-    {
+    public void kuvionKorkeus() {
         boolean testi = false;
         while (testi == false) {
             if (kuvio.getTyyppi() != 1) {
@@ -315,8 +313,7 @@ public class KuvioTest {
         assertEquals(this.kuvio.kuvionKorkeus(), 4);
         this.kuvio.kierra();
         assertEquals(this.kuvio.kuvionKorkeus(), 1);
-        
-        
+
     }
 
 }

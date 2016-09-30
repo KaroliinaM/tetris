@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tetris.muntetris;
 
 /**
@@ -16,36 +15,28 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Rivi rivi=new Rivi();
-        
-        for(int i=0; i<10; i++)
-        {
-           System.out.println(rivi.annaRivinkoko());
+
+        Rivi rivi = new Rivi();
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(rivi.annaRivinkoko());
         }
         rivi.asetaPalikka(4);
-        
-      /**  Peli p=new Peli();
-        
-        
-        for(int i=0; i<5; i++)
-            
-        {
-        try
-        {
-            Thread.sleep(1024);
-            System.out.println("ok");
-        }
-        catch(Exception e)
-        {
-         System.out.println("virhe");
-        }
-        }
-        
-       // Rivi rivi=new Rivi();
-        //int f=rivi.rivinKoko();
-        
-        // TODO code application logic here**/
+
+        /**
+         * Peli p=new Peli();
+         *
+         *
+         * for(int i=0; i<5; i++)
+         *
+         * {
+         * try { Thread.sleep(1024); System.out.println("ok"); } catch(Exception
+         * e) { System.out.println("virhe"); } }
+         *
+         * // Rivi rivi=new Rivi(); //int f=rivi.rivinKoko();
+         *
+         * // TODO code application logic here*
+         */
     }
-    
+
 }
