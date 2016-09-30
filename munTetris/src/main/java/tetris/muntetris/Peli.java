@@ -16,29 +16,34 @@ public class Peli {
     private Kentta kentta;
     private boolean loppu;
     private Kuvio kuvio;
-    private ArrayList<ArrayList> rivit;
+    
 
     public Peli() {
         this.loppu = false;
         this.kentta = new Kentta();
-        this.rivit = new ArrayList<ArrayList>();
-
-        while (this.loppu = false) {
-            this.kuvio = new Kuvio();
-            while (this.kuvio.sijaintiAlhaalla().getY() > this.kentta.getAlin()) {
-
+        
+        
+        while(loppu==false)
+        {
+            this.kuvio=new Kuvio();
+            while(this.kuvio.sijaintiAlhaalla().getY()<0)
+            {
                 this.kuvio.liiku();
-                try {
-                    this.kuvio.wait(1000);
-                } catch (Exception e) {
-                    System.out.println("virhe");
+                try{
+                Thread.sleep(1024);
+                }catch(Exception e)
+                {
+                    System.out.println("virhe palikan liikkumisessa");
                 }
             }
-            if (rivit.size() == 0) {
-                Rivi rivi = new Rivi();
-            }
-
+            
+            
+            
+            
+            
+            
         }
+        
 
     }
 

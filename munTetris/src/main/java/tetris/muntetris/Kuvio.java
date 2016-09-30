@@ -170,15 +170,16 @@ public class Kuvio {
         return alhaalla;
     }
 
-    public int palikanKorkeus() {
-        int korkeus = 1;
-        int ylin = this.sijaintiAlhaalla().getY();
+    public int kuvionKorkeus() {
+        int korkeus = 0;
+        int alin = this.sijaintiAlhaalla().getY()-1;
 
         for (int i = 0; i < this.palikat.size(); i++) {
-            if (this.palikat.get(i).getY() > ylin) {
-                korkeus += ylin - this.palikat.get(i).getY();
+            if (this.palikat.get(i).getY() > alin) {
+                korkeus = this.palikat.get(i).getY()-alin;
             }
         }
+        alin-=korkeus;
         return korkeus;
     }
 
@@ -303,6 +304,19 @@ public class Kuvio {
         while (this.sijaintiVasemmalla().getX() < 0) {
             this.liikutaOikealle();
         }
+    }
+    public int leveys(int kohta)
+    {
+        int leveys=0;
+        kohta+=this.sijaintiAlhaalla().getY();
+        for(int i=0; i<this.palikat.size(); i++)
+        {
+            if(this.palikat.get(i).getY()==kohta)
+            {
+                leveys++;
+            }
+        }
+        return leveys;
     }
 
     public void liiku() {

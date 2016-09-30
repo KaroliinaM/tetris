@@ -25,5 +25,10 @@ public class Kentta {
     public int getAlin() {
         return alin;
     }
+    public void setAlin(int x)
+    {
+        this.alin=x;
+    }
+    
 
 }

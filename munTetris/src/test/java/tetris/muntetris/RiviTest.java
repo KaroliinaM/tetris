@@ -54,6 +54,7 @@ public class RiviTest {
     {
     Rivi rivi=new Rivi();
         boolean testi=true;
+        //System.out.println(this.rivi.getRivinKoko());
         ArrayList<Boolean> testirivi=rivi.annaRivi();
         if(testirivi.size()!=12)
         {
@@ -69,6 +70,55 @@ public class RiviTest {
         
         assertEquals(testi, true);
     }
+    
+    @Test
+    public void pituudenHakeminen()
+    {
+        Rivi rivi=new Rivi();
+        
+        assertEquals(12, rivi.annaRivinkoko());
+    }
+    
+    
+    @Test
+    public void palikanAsetus()
+    {
+        Rivi rivi=new Rivi();
+        boolean t=false;
+        rivi.asetaPalikka(5);
+        for(int i=0; i<rivi.annaRivinkoko(); i++)
+        {
+            if(rivi.annaPalikka(i)==true)
+            {
+                t=true;
+            }
+        }
+        assertEquals(t, true);
+        
+        
+    }    
+    
+    @Test
+    public void riviTaynna()
+    {
+        Rivi rivi=new Rivi();
+        for(int i=0; i<3; i++)
+        {
+            rivi.asetaPalikka(i);
+        }
+        
+        assertEquals(false, rivi.onkoTaynna());
+        
+       for(int i=0; i<rivi.annaRivinkoko(); i++)
+        {
+            rivi.asetaPalikka(i);
+        }
+        
+        assertEquals(true, rivi.onkoTaynna());
+        
+    }
+            
+    
     
     /** @Test
     
