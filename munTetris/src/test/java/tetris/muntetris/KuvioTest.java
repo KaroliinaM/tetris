@@ -237,7 +237,7 @@ public class KuvioTest {
         assertEquals(true, testi);
 
     }
-
+    
     @Test
 
     public void pysyyRajoissa() //testataan, että jos kuviota kierretään kentän laidassa, pysyykö se kentällä

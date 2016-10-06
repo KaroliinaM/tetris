@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  *
  * @author kmietola
- * 
+ *
  * Tetriksen kuvio, niitä on kuutta erilaista.
  */
 public class Kuvio {
@@ -23,6 +23,7 @@ public class Kuvio {
     private Palikka tokapalikka;
     private Palikka kolmaspalikka;
     private Palikka neljaspalikka;
+    private Tetrimino tetrimino;
     private ArrayList<Palikka> palikat;
     private int kierto;
 
@@ -33,74 +34,25 @@ public class Kuvio {
         kierto = 0;
 
         if (tyyppi == 0) { //neliö
-            this.ekapalikka = new Palikka(6, 0);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 0);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 1);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(7, 1);
-            palikat.add(neljaspalikka);
+            this.tetrimino = new Nelio();
+
         } else if (tyyppi == 1) { //pitkä
+            this.tetrimino = new Pitka();
 
-            this.ekapalikka = new Palikka(6, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(6, 27);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 28);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(6, 29);
-            palikat.add(neljaspalikka);
         } else if (tyyppi == 2) { //l oikealle
+            this.tetrimino = new Loikealle();
 
-            this.ekapalikka = new Palikka(6, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 26);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 27);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(6, 28);
-            palikat.add(neljaspalikka);
         } else if (tyyppi == 3) { //l vasemmalle
+            this.tetrimino = new LVasemmalle();
 
-            this.ekapalikka = new Palikka(6, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 26);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(7, 27);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(7, 28);
-            palikat.add(neljaspalikka);
         } else if (tyyppi == 4) { //suunnikas oikealle
+            this.tetrimino = new SuunnikasOikealle();
 
-            this.ekapalikka = new Palikka(6, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 26);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(7, 27);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(8, 27);
-            palikat.add(neljaspalikka);
         } else if (tyyppi == 5) { //suunnikas vasemmalle
+            this.tetrimino = new SuunnikasVasemmalle();
 
-            this.ekapalikka = new Palikka(7, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 27);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(6, 27);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(6, 28);
-            palikat.add(neljaspalikka);
         } else if (tyyppi == 6) { //kolmipiikki
-
-            this.ekapalikka = new Palikka(6, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 26);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(8, 26);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(7, 27);
-            palikat.add(neljaspalikka);
+            this.tetrimino = new Kolmipiikki();
         }
 
     }
@@ -110,63 +62,61 @@ public class Kuvio {
     }
 
     public Palikka palikanSijainti(int x) {
-        Palikka palautettava = palikat.get(x);
+        Palikka palautettava = this.tetrimino.getPalikka(x);//palikat.get(x);
 
         return palautettava;
     }
 
     public void liikutaOikealle() {
-        for (int i = 0; i < palikat.size(); i++) {
+        for (int i = 0; i < 4; i++) {
             if (this.sijaintiOikealla().getX() < 12) {
-                int arvo = palikat.get(i).getX();
+                int arvo = this.tetrimino.getPalikka(i).getX();
                 arvo++;
-                palikat.get(i).setX(arvo);
+                this.tetrimino.getPalikka(i).setX(arvo);
             }
         }
-
     }
 
     public void liikutaVasemmalle() {
-        for (int i = 0; i < palikat.size(); i++) {
+        for (int i = 0; i < 4; i++) {
             if (this.sijaintiVasemmalla().getX() > 0) {
-                int arvo = palikat.get(i).getX();
+                int arvo = this.tetrimino.getPalikka(i).getX();
                 arvo--;
-                palikat.get(i).setX(arvo);
+                this.tetrimino.getPalikka(i).setX(arvo);
             }
-
         }
-
     }
 
     public ArrayList<Palikka> kuviotesti() {
+        this.palikat = this.tetrimino.palautaKuvio();
         return palikat;
     }
 
     public Palikka sijaintiOikealla() {
-        Palikka oikealla = palikat.get(0);
-        for (int i = 1; i < palikat.size(); i++) {
-            if (palikat.get(i).getX() > oikealla.getX()) {
-                oikealla = palikat.get(i);
+        Palikka oikealla = this.tetrimino.getPalikka(0);//palikat.get(0);
+        for (int i = 1; i < 4; i++) {
+            if (this.tetrimino.getPalikka(i).getX() > oikealla.getX()) {
+                oikealla = this.tetrimino.getPalikka(i);
             }
         }
         return oikealla;
     }
 
     public Palikka sijaintiVasemmalla() {
-        Palikka vasemmalla = palikat.get(0);
-        for (int i = 1; i < palikat.size(); i++) {
-            if (palikat.get(i).getX() > vasemmalla.getX()) {
-                vasemmalla = palikat.get(i);
+        Palikka vasemmalla = this.tetrimino.getPalikka(0);
+        for (int i = 1; i < 4; i++) {
+            if (this.tetrimino.getPalikka(i).getX() > vasemmalla.getX()) {
+                vasemmalla = this.tetrimino.getPalikka(i);
             }
         }
         return vasemmalla;
     }
 
     public Palikka sijaintiAlhaalla() {
-        Palikka alhaalla = palikat.get(0);
-        for (int i = 1; i < palikat.size(); i++) {
-            if (palikat.get(i).getY() < alhaalla.getY()) {
-                alhaalla = palikat.get(i);
+        Palikka alhaalla = this.tetrimino.getPalikka(0);
+        for (int i = 1; i < 4; i++) {
+            if (this.tetrimino.getPalikka(i).getY() < alhaalla.getY()) {
+                alhaalla = this.tetrimino.getPalikka(i);
             }
         }
         return alhaalla;
@@ -176,9 +126,9 @@ public class Kuvio {
         int korkeus = 0;
         int alin = this.sijaintiAlhaalla().getY() - 1;
 
-        for (int i = 0; i < this.palikat.size(); i++) {
-            if (this.palikat.get(i).getY() > alin) {
-                korkeus = this.palikat.get(i).getY() - alin;
+        for (int i = 0; i < 4; i++) {
+            if (this.tetrimino.getPalikka(i).getY() > alin) {
+                korkeus = this.tetrimino.getPalikka(i).getY() - alin;
             }
         }
         alin -= korkeus;
@@ -187,97 +137,13 @@ public class Kuvio {
 
     public void kierra() {
         if (this.tyyppi == 1) {
-            if (kierto == 0) {
-
-                this.palikat.get(0).setX(6);
-                this.palikat.get(0).setY(0);
-
-                this.palikat.get(1).setX(7);
-                this.palikat.get(1).setY(0);
-
-                this.palikat.get(2).setX(8);
-                this.palikat.get(2).setY(0);
-
-                this.palikat.get(3).setX(9);
-                this.palikat.get(3).setY(0);
-                this.testaaRajat();
-                kierto++;
-            } else if (kierto == 1) {
-
-                this.palikat.get(0).setX(6);
-                this.palikat.get(0).setY(0);
-
-                this.palikat.get(1).setX(6);
-                this.palikat.get(1).setY(1);
-
-                this.palikat.get(2).setX(6);
-                this.palikat.get(2).setY(2);
-
-                this.palikat.get(3).setX(6);
-                this.palikat.get(3).setY(3);
-                this.testaaRajat();
-                kierto--;
-            }
+            this.tetrimino.kierra();
+            this.testaaRajat();
 
         }
         if (this.tyyppi == 2) {
-            if (kierto == 0) {
-                this.palikat.get(0).setX(5);
-                this.palikat.get(0).setY(0);
-
-                this.palikat.get(1).setX(6);
-                this.palikat.get(1).setY(0);
-
-                this.palikat.get(2).setX(7);
-                this.palikat.get(2).setY(0);
-
-                this.palikat.get(3).setX(7);
-                this.palikat.get(3).setY(1);
-                this.testaaRajat();
-                kierto++;
-            } else if (kierto == 1) {
-                this.palikat.get(0).setX(7);
-                this.palikat.get(0).setY(0);
-
-                this.palikat.get(1).setX(7);
-                this.palikat.get(1).setY(1);
-
-                this.palikat.get(2).setX(7);
-                this.palikat.get(2).setY(2);
-
-                this.palikat.get(3).setX(6);
-                this.palikat.get(3).setY(2);
-                this.testaaRajat();
-                kierto++;
-            } else if (kierto == 2) {
-                this.palikat.get(0).setX(6);
-                this.palikat.get(0).setY(0);
-
-                this.palikat.get(1).setX(6);
-                this.palikat.get(1).setY(1);
-
-                this.palikat.get(2).setX(7);
-                this.palikat.get(2).setY(1);
-
-                this.palikat.get(3).setX(1);
-                this.palikat.get(3).setY(8);
-                this.testaaRajat();
-                kierto++;
-            } else if (kierto == 3) {
-                this.palikat.get(0).setX(6);
-                this.palikat.get(0).setY(0);
-
-                this.palikat.get(1).setX(7);
-                this.palikat.get(1).setY(0);
-
-                this.palikat.get(2).setX(6);
-                this.palikat.get(2).setY(1);
-
-                this.palikat.get(3).setX(6);
-                this.palikat.get(3).setY(2);
-                this.testaaRajat();
-                kierto = 0;
-            }
+            this.tetrimino.kierra();
+            this.testaaRajat();
 
         }
         if (this.tyyppi == 3) {
@@ -310,16 +176,28 @@ public class Kuvio {
     public int leveys(int kohta) {
         int leveys = 0;
         kohta += this.sijaintiAlhaalla().getY();
-        for (int i = 0; i < this.palikat.size(); i++) {
-            if (this.palikat.get(i).getY() == kohta) {
+        for (int i = 0; i < 4; i++) {
+            if (this.tetrimino.getPalikka(i).getY() == kohta) {
                 leveys++;
             }
         }
         return leveys;
     }
+    public int rivinLaita(int kohta)
+    {
+        int paikka=30; 
+         kohta += this.sijaintiAlhaalla().getY();
+         for (int i = 1; i < 4; i++) {
+            if (this.tetrimino.getPalikka(i).getY() == kohta && this.tetrimino.getPalikka(i).getX()<paikka) {
+                paikka=this.tetrimino.getPalikka(i).getX();
+            }
+        }
+        return kohta;
+        
+    }
 
     public void liiku() {
-        for (int i = 0; i < this.palikat.size(); i++) {
+        for (int i = 0; i < 4; i++) {
             int laskeva = this.palikat.get(i).getY();
             laskeva--;
             this.palikat.get(i).setY(laskeva);

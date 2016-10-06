@@ -50,9 +50,24 @@ public class Rivit {
         boolean palautettava;
 
         int kierros = kuvio.sijaintiAlhaalla().getY() - k.getAlin();
+        palautettava = true;
+        for(int i=0; i<kierros+1; i++)
+        {
+            Rivi r = rivit.get(rivit.size() - (1+kierros));
+            int tila=kuvio.leveys(i);
+            int kohta = kuvio.rivinLaita(i);
+            
+            for (int j = 0; j < tila; j++) {
+                if (r.annaPalikka(kohta + i) == false) {
+                    palautettava = false;
+                }
+            }
+        }
+        return palautettava;
+                /**
         if (kierros == 0) {
             Rivi r = rivit.get(rivit.size() - 1);
-            palautettava = true;
+            
             int tila = kuvio.leveys(0);
             int kohta = kuvio.sijaintiAlhaalla().getX();
 
@@ -62,9 +77,10 @@ public class Rivit {
                 }
             }
             return palautettava;
-        } else {
+        } 
+        else {
             return false;
-        }
+        }**/
     }
 
 }
