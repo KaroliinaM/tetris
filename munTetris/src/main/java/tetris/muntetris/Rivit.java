@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author kmietola
  *
- * Tetyriksen alareunan rivit arraylistina.
+ * Tetriksen alareunan rivit arraylistina.
  */
 public class Rivit {
 
@@ -30,9 +30,17 @@ public class Rivit {
         return this.rivit.get(mones);
     }
 
+    /*
+    Palauttaa, montako riviä listassa on
+     */
+
     public int rivienMaara() {
         return this.rivit.size();
     }
+
+    /*
+    Poistaa rivin
+     */
 
     public void poistaRivi(int i) {
         this.rivit.remove(i);
@@ -51,12 +59,11 @@ public class Rivit {
 
         int kierros = kuvio.sijaintiAlhaalla().getY() - k.getAlin();
         palautettava = true;
-        for(int i=0; i<kierros+1; i++)
-        {
-            Rivi r = rivit.get(rivit.size() - (1+kierros));
-            int tila=kuvio.leveys(i);
+        for (int i = 0; i < kierros + 1; i++) {
+            Rivi r = rivit.get(rivit.size() - (1 + kierros));
+            int tila = kuvio.leveys(i);
             int kohta = kuvio.rivinLaita(i);
-            
+
             for (int j = 0; j < tila; j++) {
                 if (r.annaPalikka(kohta + i) == false) {
                     palautettava = false;
@@ -64,23 +71,17 @@ public class Rivit {
             }
         }
         return palautettava;
-                /**
-        if (kierros == 0) {
-            Rivi r = rivit.get(rivit.size() - 1);
-            
-            int tila = kuvio.leveys(0);
-            int kohta = kuvio.sijaintiAlhaalla().getX();
-
-            for (int i = 0; i < tila; i++) {
-                if (r.annaPalikka(kohta + i) == false) {
-                    palautettava = false;
-                }
-            }
-            return palautettava;
-        } 
-        else {
-            return false;
-        }**/
+        /**
+         * if (kierros == 0) { Rivi r = rivit.get(rivit.size() - 1);
+         *
+         * int tila = kuvio.leveys(0); int kohta =
+         * kuvio.sijaintiAlhaalla().getX();
+         *
+         * for (int i = 0; i < tila; i++) { if (r.annaPalikka(kohta + i) ==
+         * false) { palautettava = false; } } return palautettava; } else {
+         * return false;
+        }*
+         */
     }
 
 }

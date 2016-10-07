@@ -12,9 +12,11 @@ import java.util.ArrayList;
  * @author kape
  */
 public interface Tetrimino {
-    
+
     Palikka getPalikka(int x);
+
     ArrayList palautaKuvio();
+
     void kierra();
-    
+
 }

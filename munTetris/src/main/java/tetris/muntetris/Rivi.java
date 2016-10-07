@@ -28,22 +28,37 @@ public class Rivi {
         }
 
     }
+    /*
+    asettaa arvon arraylistiin
+    */
 
     public void asetaPalikka(int x) {
         this.rivi.set(x, Boolean.TRUE);
     }
+    /*
+    Palauttaa arraylistin
+    */
 
     public ArrayList annaRivi() {
         return this.rivi;
     }
+    /*
+    palauttaa arraylistin koon(testiluokkaa varten)
+    */
 
     public int annaRivinkoko() {
         return 12;
     }
+    /*
+    Palauttaa Arraylistin yksikön arvon
+    */
 
     public boolean annaPalikka(int x) {
         return this.rivi.get(x);
     }
+    /*
+    Testaa onko rivi täynnä
+    */
 
     public boolean onkoTaynna() {
         boolean palautettava = true;

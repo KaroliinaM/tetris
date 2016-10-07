@@ -8,8 +8,9 @@ package tetris.muntetris;
 import java.util.ArrayList;
 
 /**
- *
- * @author kape
+ *Yksi tetriminoista
+ * 
+ * @author Karoliina
  */
 public class Loikealle implements Tetrimino {
 
@@ -34,12 +35,18 @@ public class Loikealle implements Tetrimino {
         this.neljaspalikka = new Palikka(6, 28);
         palikat.add(neljaspalikka);
     }
+    /*
+    Palauttaa tietyn palikan 
+    */
 
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
 
         return palautettava;
     }
+    /*
+    Palauttaa tetriminon palikat
+    */
 
     public ArrayList palautaKuvio() {
         return this.palikat;
@@ -97,7 +104,7 @@ public class Loikealle implements Tetrimino {
 
             this.palikat.get(3).setX(6);
             this.palikat.get(3).setY(2);
-            
+
             kierto = 0;
         }
 

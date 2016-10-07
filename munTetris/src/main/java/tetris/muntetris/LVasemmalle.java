@@ -8,44 +8,52 @@ package tetris.muntetris;
 import java.util.ArrayList;
 
 /**
- *
- * @author kape
+ *Yksi tetriminoista
+ * 
+ * @author Karoliina
  */
 public class LVasemmalle implements Tetrimino {
-        private ArrayList<Palikka> palikat;
-        private int x;
+
+    private ArrayList<Palikka> palikat;
+    private int x;
     private int y;
     private Palikka ekapalikka;
     private Palikka tokapalikka;
     private Palikka kolmaspalikka;
     private Palikka neljaspalikka;
     private int kierto;
-    
-    public LVasemmalle()
-    {
-        this.kierto=0;
-        this.palikat=new ArrayList<Palikka>();
+
+    public LVasemmalle() {
+        this.kierto = 0;
+        this.palikat = new ArrayList<Palikka>();
         this.ekapalikka = new Palikka(6, 26);
-            palikat.add(ekapalikka);
-            this.tokapalikka = new Palikka(7, 26);
-            palikat.add(tokapalikka);
-            this.kolmaspalikka = new Palikka(7, 27);
-            palikat.add(kolmaspalikka);
-            this.neljaspalikka = new Palikka(7, 28);
-            palikat.add(neljaspalikka);
+        palikat.add(ekapalikka);
+        this.tokapalikka = new Palikka(7, 26);
+        palikat.add(tokapalikka);
+        this.kolmaspalikka = new Palikka(7, 27);
+        palikat.add(kolmaspalikka);
+        this.neljaspalikka = new Palikka(7, 28);
+        palikat.add(neljaspalikka);
     }
+    /*
+    Palauttaa tietyn palikan 
+    */
+
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
 
         return palautettava;
     }
-    public ArrayList palautaKuvio()
-    {
+    /*
+    Palauttaa tetriminon palikat
+    */
+
+    public ArrayList palautaKuvio() {
         return this.palikat;
     }
-    public void kierra()
-    {
-        
+
+    public void kierra() {
+
     }
-    
+
 }
