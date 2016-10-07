@@ -12,3 +12,4 @@ Päivä | Tunnit | Kuvaus
 30.09.2016 | 4h |projektin tekemistä ja rakenteen miettimistä
 01.10.2016 | 5h |projektin tekemistä
 02.10.2016 | 1h |projektin tekemistä
+02.10.2016 | 2,5h |dokumentaation tarkistamista
