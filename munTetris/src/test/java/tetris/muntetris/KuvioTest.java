@@ -66,8 +66,8 @@ public class KuvioTest {
     public void kuvioLiikkuuOikealle() {
         int alku = kuvio.sijaintiOikealla().getX();
         alku += 5;
-        if (alku > 12) {
-            alku = 12;
+        if (alku > 10) {
+            alku = 10;
         }
         for (int i = 0; i < 5; i++) {
             kuvio.liikutaOikealle();
@@ -259,7 +259,7 @@ public class KuvioTest {
         kuvio.kierra();
 
         int oikealla = kuvio.sijaintiOikealla().getX();
-        if (oikealla > 12) {
+        if (oikealla > 10) {
             testi = false;
         }
 
@@ -315,5 +315,17 @@ public class KuvioTest {
         assertEquals(this.kuvio.kuvionKorkeus(), 1);
 
     }
+    @Test
+    public void liikuttaminen()
+    {
+        //kuvio=new Kuvio();
+        int y=kuvio.sijaintiAlhaalla().getY();
+        for(int i=0; i<5; i++)
+        {
+            kuvio.liiku();
+        }
+        assertEquals(kuvio.sijaintiAlhaalla().getY(), y+5);
+    }
+    
 
 }

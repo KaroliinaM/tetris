@@ -19,7 +19,7 @@ public class Rivi {
 
     public Rivi() {
         this.rivi = new ArrayList<Boolean>();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 10; i++) {
             this.rivi.add(false);
         }
         System.out.println(this.rivi.size());
@@ -47,7 +47,7 @@ public class Rivi {
     */
 
     public int annaRivinkoko() {
-        return 12;
+        return 10;
     }
     /*
     Palauttaa Arraylistin yksikön arvon

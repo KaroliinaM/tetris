@@ -25,13 +25,13 @@ public class Pitka implements Tetrimino {
     public Pitka() {
         this.kierto = 0;
         this.palikat = new ArrayList<Palikka>();
-        this.ekapalikka = new Palikka(6, 26);
+        this.ekapalikka = new Palikka(6, 0);
         palikat.add(ekapalikka);
-        this.tokapalikka = new Palikka(6, 27);
+        this.tokapalikka = new Palikka(6, 1);
         palikat.add(tokapalikka);
-        this.kolmaspalikka = new Palikka(6, 28);
+        this.kolmaspalikka = new Palikka(6, 2);
         palikat.add(kolmaspalikka);
-        this.neljaspalikka = new Palikka(6, 29);
+        this.neljaspalikka = new Palikka(6, 3);
         palikat.add(neljaspalikka);
     }
     /*

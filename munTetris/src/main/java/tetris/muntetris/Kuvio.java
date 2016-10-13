@@ -78,7 +78,7 @@ public class Kuvio {
 
     public void liikutaOikealle() {
         for (int i = 0; i < 4; i++) {
-            if (this.sijaintiOikealla().getX() < 12) {
+            if (this.sijaintiOikealla().getX() < 10) {
                 int arvo = this.tetrimino.getPalikka(i).getX();
                 arvo++;
                 this.tetrimino.getPalikka(i).setX(arvo);
@@ -139,7 +139,7 @@ public class Kuvio {
     public Palikka sijaintiAlhaalla() {
         Palikka alhaalla = this.tetrimino.getPalikka(0);
         for (int i = 1; i < 4; i++) {
-            if (this.tetrimino.getPalikka(i).getY() < alhaalla.getY()) {
+            if (this.tetrimino.getPalikka(i).getY() > alhaalla.getY()) {
                 alhaalla = this.tetrimino.getPalikka(i);
             }
         }
@@ -151,14 +151,15 @@ public class Kuvio {
 
     public int kuvionKorkeus() {
         int korkeus = 0;
-        int alin = this.sijaintiAlhaalla().getY() - 1;
+        int alin = this.sijaintiAlhaalla().getY() + 1;
+        int ylin=this.sijaintiAlhaalla().getY();
 
         for (int i = 0; i < 4; i++) {
-            if (this.tetrimino.getPalikka(i).getY() > alin) {
-                korkeus = this.tetrimino.getPalikka(i).getY() - alin;
+            if (this.tetrimino.getPalikka(i).getY() < ylin) {
+                ylin = this.tetrimino.getPalikka(i).getY();
             }
         }
-        alin -= korkeus;
+        korkeus=alin-ylin;
         return korkeus;
     }
     /*
@@ -198,10 +199,10 @@ public class Kuvio {
     */
 
     public void testaaRajat() {
-        while (this.sijaintiOikealla().getX() > 12) {
+        while (this.sijaintiOikealla().getX() > 9) {
             this.liikutaVasemmalle();
         }
-        while (this.sijaintiVasemmalla().getX() < 0) {
+        while (this.sijaintiVasemmalla().getX() < 1) {
             this.liikutaOikealle();
         }
     }
@@ -240,9 +241,8 @@ public class Kuvio {
 
     public void liiku() {
         for (int i = 0; i < 4; i++) {
-            int laskeva = this.palikat.get(i).getY();
-            laskeva--;
-            this.palikat.get(i).setY(laskeva);
+            this.tetrimino.getPalikka(i).yksiAlaspain();
+            
         }
     }
 

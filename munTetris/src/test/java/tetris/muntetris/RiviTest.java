@@ -56,7 +56,7 @@ public class RiviTest {
         boolean testi=true;
         //System.out.println(this.rivi.getRivinKoko());
         ArrayList<Boolean> testirivi=rivi.annaRivi();
-        if(testirivi.size()!=12)
+        if(testirivi.size()!=10)
         {
             testi=false;
         }
@@ -76,7 +76,7 @@ public class RiviTest {
     {
         Rivi rivi=new Rivi();
         
-        assertEquals(12, rivi.annaRivinkoko());
+        assertEquals(10, rivi.annaRivinkoko());
     }
     
     

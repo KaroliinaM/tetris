@@ -45,6 +45,10 @@ public class Rivit {
     public void poistaRivi(int i) {
         this.rivit.remove(i);
     }
+    public void lisaaKuvio(Kuvio kuvio)
+    {
+        
+    }
 
     /**
      * Metodi testaa, että onko tietylle kuviolle tilaa liikkua alaspäin.

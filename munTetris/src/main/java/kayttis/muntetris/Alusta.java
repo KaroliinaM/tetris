@@ -7,6 +7,7 @@ package kayttis.muntetris;
 
 import java.awt.*;
 import javax.swing.*;
+import tetris.muntetris.Kentta;
 
 /**
  *
@@ -14,14 +15,19 @@ import javax.swing.*;
  */
 public class Alusta extends JPanel{
     
-    public Alusta()
+    private Kentta kentta;
+    
+    public Alusta(Kentta kentta)
     {
        super.setBackground(Color.BLACK);
-       super.setSize(300, 300);
+       this.kentta=kentta;
     }
     @Override
     protected void paintComponent(Graphics graphics) {
     super.paintComponent(graphics);
+    kentta.piirra(graphics);
     }
+    
+
     
 }

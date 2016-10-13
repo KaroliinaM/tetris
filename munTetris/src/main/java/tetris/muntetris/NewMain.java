@@ -18,14 +18,13 @@ public class NewMain {
      */
     public static void main(String[] args) {
 
-        Kayttoliittyma kayttis=new Kayttoliittyma();
-        kayttis.run();
+        
         
 
-        /**
-         * Peli p=new Peli();
-         *
-         *
+        
+          Peli p=new Peli();
+         
+         /**
          * for(int i=0; i<5; i++)
          *
          * {

@@ -36,5 +36,9 @@ public class Palikka {
     public void setX(int x) {
         this.x = x;
     }
+    public void yksiAlaspain()
+    {
+        this.y++;
+    }
 
 }

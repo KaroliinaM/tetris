@@ -25,13 +25,13 @@ public class SuunnikasVasemmalle implements Tetrimino {
     public SuunnikasVasemmalle() {
         this.kierto = 0;
         this.palikat = new ArrayList<Palikka>();
-        this.ekapalikka = new Palikka(7, 26);
+        this.ekapalikka = new Palikka(6, 0);
         palikat.add(ekapalikka);
-        this.tokapalikka = new Palikka(7, 27);
+        this.tokapalikka = new Palikka(7, 0);
         palikat.add(tokapalikka);
-        this.kolmaspalikka = new Palikka(6, 27);
+        this.kolmaspalikka = new Palikka(7, 1);
         palikat.add(kolmaspalikka);
-        this.neljaspalikka = new Palikka(6, 28);
+        this.neljaspalikka = new Palikka(8, 1);
         palikat.add(neljaspalikka);
     }
     /*

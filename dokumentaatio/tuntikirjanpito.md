@@ -13,3 +13,5 @@ Päivä | Tunnit | Kuvaus
 01.10.2016 | 5h |projektin tekemistä
 02.10.2016 | 1h |projektin tekemistä
 02.10.2016 | 2,5h |dokumentaation tarkistamista
+12.10.2016 | 3h |Käyttöliittymän aloittaminen
+13.10.2016 | 5h |Käyttöliittymän jatkaminen

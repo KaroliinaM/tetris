@@ -7,6 +7,8 @@ package kayttis.muntetris;
 
 import java.awt.*;
 import javax.swing.*;
+import tetris.muntetris.Kentta;
+import tetris.muntetris.Kuvio;
 
 /**
  *
@@ -14,16 +16,19 @@ import javax.swing.*;
  */
 public class Kayttoliittyma {
     
+    private Kentta kentta;
     private JFrame frame;
+    private Alusta a;
+    private NappaimistonKuuntelija kuuntelija; 
     
-    public Kayttoliittyma()
+    public Kayttoliittyma(Kentta kentta)
     {
-        
+        this.kentta=kentta;
     }
     public void run()
     {
         this.frame=new JFrame();
-        frame.setPreferredSize(new Dimension(800, 700));
+        frame.setPreferredSize(new Dimension(800, 800));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
@@ -36,9 +41,18 @@ public class Kayttoliittyma {
        GridLayout layout=new GridLayout(0, 2);
         container.setLayout(layout);
     
-    Alusta a=new Alusta();
-    a.setSize(300, 300);
+    this.a=new Alusta(kentta);
     container.add(a);
+    this.kuuntelija=new NappaimistonKuuntelija(a);
+    frame.addKeyListener(kuuntelija);
+    }
+    public void paivita()
+    {
+       kentta.piirraUudelleen(a);
+    }
+    public void tetriminoKuuntelijaan(Kuvio kuvio)
+    {
+        kuuntelija.haeKuvio(kuvio);
     }
     
 }
