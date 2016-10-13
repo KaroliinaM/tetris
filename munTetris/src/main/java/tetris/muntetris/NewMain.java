@@ -5,6 +5,8 @@
  */
 package tetris.muntetris;
 
+import kayttis.muntetris.Kayttoliittyma;
+
 /**
  *
  * @author kmietola
@@ -16,12 +18,9 @@ public class NewMain {
      */
     public static void main(String[] args) {
 
-        Rivi rivi = new Rivi();
-
-        for (int i = 0; i < 10; i++) {
-            System.out.println(rivi.annaRivinkoko());
-        }
-        rivi.asetaPalikka(4);
+        Kayttoliittyma kayttis=new Kayttoliittyma();
+        kayttis.run();
+        
 
         /**
          * Peli p=new Peli();
