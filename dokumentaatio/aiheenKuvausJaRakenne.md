@@ -9,6 +9,8 @@ Aluksi on tarkoitus saada tehdyksi toimiva peli, jota parantelen tyylillisesti m
 **Käyttäjän toiminnot:** tetris-palikoiden ohjaaminen space-painikkeella (palikan kääntäminen) ja nuolipainikkeilla (palikan siirtäminen oikea-vasen sekä sen pudotus riviin) 
 
 
-![luokkakaavio](luokkakaavio.png)
+![luokkakaavio](Luokkakaavio.png)
+
 ![Käyttötapaus pelin aloitus](Kayttotapaus1.png)
+
 ![Käyttötapaus kuvion siirto](Kayttotapaus2.png)

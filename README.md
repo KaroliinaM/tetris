@@ -1,6 +1,6 @@
 #Dokumentaatio
 
-[aiheen määrittely](dokumentaatio/aihemaarittely.md)
+[aiheen määrittely](dokumentaatio/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
