@@ -17,9 +17,7 @@
         <module name='NeedBraces' />
         <module name='RightCurly' />
         <module name='AvoidNestedBlocks' />
-        <module name="NestedIfDepth">
-          <property name="max" value="2"/>
-          <module name="JavadocMethod">
+        <module name="JavadocMethod">
     <property name="scope" value="public"/>
     <property name="allowMissingParamTags" value="false"/>
     <property name="allowMissingPropertyJavadoc" value="true"/>
@@ -32,6 +30,9 @@
     <property name="scope" value="public"/>
     <property name="checkEmptyJavadoc" value="true"/>
   </module>
+        <module name="NestedIfDepth">
+          <property name="max" value="2"/>
+          
         </module>
         <module name="NestedForDepth">
           <property name="max" value="2"/>
