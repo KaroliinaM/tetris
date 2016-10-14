@@ -35,10 +35,10 @@
             <version>1.1.8</version>
             <configuration>
         <targetClasses>
-            <param>tetris.muntetris.*</param>
+            <param>muntetris.tetris.*</param>
         </targetClasses>
         <targetTests>
-            <param>tetris.muntetris.*</param>
+            <param>muntetris.tetris.*</param>
             
         </targetTests>
     </configuration>

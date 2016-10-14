@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 02.10.2016 | 2,5h |dokumentaation tarkistamista
 12.10.2016 | 3h |Käyttöliittymän aloittaminen
 13.10.2016 | 5h |Käyttöliittymän jatkaminen
+14.10.2016 | 5h |Dokumentaation korjailua ja javadocien kanssa säätöä.
