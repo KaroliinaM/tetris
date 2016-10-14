@@ -8,6 +8,13 @@ Aluksi on tarkoitus saada tehdyksi toimiva peli, jota parantelen tyylillisesti m
 
 **Käyttäjän toiminnot:** tetris-palikoiden ohjaaminen space-painikkeella (palikan kääntäminen) ja nuolipainikkeilla (palikan siirtäminen oikea-vasen sekä sen pudotus riviin) 
 
+#Rakennekuvaus
+Tetriksen kuviot rakentuvat palikoista. Kullekin tetriksen kuviolleon oma luokkansa, abstrakti luokka tetrimino nivoo ne yhteen. Kuvio-luokka määrittelee niiden käyttäytymisen. 
+
+Kenttä-luokka mudostaa sovelluslogiikan kentän. alas kasautuvat palikat on tarkoitus tallentaa rivi-olioihin, jotka on tallennettu rivit-olioon.
+
+Graafiseen käyttöjärjestelmään kuvat piirretään jpanelia käyttäen alusta-olioon. piirtäminen tapahtuu kentää ja kuvio-luokkia hyväksi käyttäen.
+
 
 ![luokkakaavio](Luokkakaavio.png)
 

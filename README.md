@@ -4,10 +4,10 @@
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit-raportti](https://htmlpreview.github.io/?https://github.com/KaroliinaM/tetris/blob/master/dokumentaatio/pit/)
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/KaroliinaM/tetris/blob/master/dokumentaatio/pit/201610072306/tetris.muntetris/index.html)
 
 [Dokumentti tyylin tarkistuksesta](dokumentaatio/checkstyle.html)
 
-[Luokkakaavio](dokumentaatio/aiheenKuvausJaRakenne.md)
+[Käyttöohje](dokumentaatio/kayttoohje.md)
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/KaroliinaM/tetris/blob/master/dokumentaatio/checkstyle.html)
