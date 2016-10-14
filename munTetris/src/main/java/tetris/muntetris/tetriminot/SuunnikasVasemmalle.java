@@ -8,7 +8,8 @@ package tetris.muntetris.tetriminot;
 import java.util.ArrayList;
 
 /**
- *Yksi tetriminoista
+ * Yksi tetriminoista
+ *
  * @author kape
  */
 public class SuunnikasVasemmalle extends Tetrimino {
@@ -35,8 +36,8 @@ public class SuunnikasVasemmalle extends Tetrimino {
         palikat.add(neljaspalikka);
     }
     /*
-    Palauttaa tietyn palikan
-    */
+     Palauttaa tietyn palikan
+     */
 
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
@@ -44,8 +45,8 @@ public class SuunnikasVasemmalle extends Tetrimino {
         return palautettava;
     }
     /*
-    Palauttaa tetriminon palikat
-    */
+     Palauttaa tetriminon palikat
+     */
 
     public ArrayList palautaKuvio() {
         return this.palikat;

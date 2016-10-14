@@ -8,7 +8,7 @@ package tetris.muntetris.tetriminot;
 /**
  *
  * @author kmietola
- * 
+ *
  * Tetriksen kuvioiden perusosa luokkana.
  */
 public class Palikka {
@@ -36,8 +36,8 @@ public class Palikka {
     public void setX(int x) {
         this.x = x;
     }
-    public void yksiAlaspain()
-    {
+
+    public void yksiAlaspain() {
         this.y++;
     }
 

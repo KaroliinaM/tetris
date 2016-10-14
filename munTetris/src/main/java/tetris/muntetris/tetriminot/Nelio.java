@@ -21,7 +21,6 @@ public class Nelio extends Tetrimino {
     private Palikka tokapalikka;
     private Palikka kolmaspalikka;
     private Palikka neljaspalikka;
-    
 
     public Nelio() {
         this.palikat = new ArrayList<Palikka>();
@@ -35,27 +34,25 @@ public class Nelio extends Tetrimino {
         palikat.add(neljaspalikka);
 
     }
-       /*
-    Palauttaa tietyn palikan 
+    /*
+     Palauttaa tietyn palikan 
      */
+
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
 
         return palautettava;
     }
     /*
-    Palauttaa tetriminon palikat
+     Palauttaa tetriminon palikat
      */
+
     public ArrayList palautaKuvio() {
         return this.palikat;
     }
+
     public void kierra() {
 
     }
-
- 
-    
-
-    
 
 }

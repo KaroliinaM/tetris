@@ -8,20 +8,22 @@ package tetris.muntetris.tetriminot;
 import java.util.ArrayList;
 
 /**
- *Ei toimi niin kuin pitäisi tällä hetkellä, annan sen kuitenkin olla tämn päivän, jotta on jotain esiteltävää koodikatselmoinnissa.
- *Hion loppuun sit viikonloppuna :) 
- * 
+ * Ei toimi niin kuin pitäisi tällä hetkellä, annan sen kuitenkin olla tämn
+ * päivän, jotta on jotain esiteltävää koodikatselmoinnissa. Hion loppuun sit
+ * viikonloppuna :)
+ *
  * @author Karoliina
  */
 public abstract class Tetrimino {
+
     private ArrayList<Palikka> palikat;
-    public Tetrimino()
-    {
-        this.palikat=new ArrayList<Palikka>();
+
+    public Tetrimino() {
+        this.palikat = new ArrayList<Palikka>();
     }
-    
-       /*
-    Palauttaa tietyn palikan 
+
+    /*
+     Palauttaa tietyn palikan 
      */
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
@@ -29,14 +31,15 @@ public abstract class Tetrimino {
         return palautettava;
     }
     /*
-    Palauttaa tetriminon palikat
+     Palauttaa tetriminon palikat
      */
+
     public ArrayList palautaKuvio() {
         return this.palikat;
     }
-   public void kierra() {
+
+    public void kierra() {
 
     }
 
-    
 }

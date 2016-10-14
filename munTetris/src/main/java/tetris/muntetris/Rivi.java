@@ -10,8 +10,8 @@ import java.util.ArrayList;
 /**
  *
  * @author kmietola
- * 
- * Tetriksen alareunan rivit luokkana. 
+ *
+ * Tetriksen alareunan rivit luokkana.
  */
 public class Rivi {
 
@@ -29,36 +29,36 @@ public class Rivi {
 
     }
     /*
-    asettaa arvon arraylistiin
-    */
+     asettaa arvon arraylistiin
+     */
 
     public void asetaPalikka(int x) {
         this.rivi.set(x, Boolean.TRUE);
     }
     /*
-    Palauttaa arraylistin
-    */
+     Palauttaa arraylistin
+     */
 
     public ArrayList annaRivi() {
         return this.rivi;
     }
     /*
-    palauttaa arraylistin koon(testiluokkaa varten)
-    */
+     palauttaa arraylistin koon(testiluokkaa varten)
+     */
 
     public int annaRivinkoko() {
         return 10;
     }
     /*
-    Palauttaa Arraylistin yksikön arvon
-    */
+     Palauttaa Arraylistin yksikön arvon
+     */
 
     public boolean annaPalikka(int x) {
         return this.rivi.get(x);
     }
     /*
-    Testaa onko rivi täynnä
-    */
+     Testaa onko rivi täynnä
+     */
 
     public boolean onkoTaynna() {
         boolean palautettava = true;

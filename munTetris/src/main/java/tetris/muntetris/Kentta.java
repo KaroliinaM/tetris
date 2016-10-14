@@ -12,7 +12,7 @@ import kayttis.muntetris.Kayttoliittyma;
 /**
  *
  * @author kmietola
- * 
+ *
  * Tetriksen kenttä.
  */
 public class Kentta {
@@ -27,7 +27,6 @@ public class Kentta {
         this.leveys = 10;
         this.korkeus = 18;
         this.alin = 18;
-        
 
     }
 
@@ -38,24 +37,21 @@ public class Kentta {
     public void setAlin(int x) {
         this.alin = x;
     }
-    public void asetaKuvio(Kuvio kuvio)
-    {
-        this.kuvio=kuvio;
+
+    public void asetaKuvio(Kuvio kuvio) {
+        this.kuvio = kuvio;
     }
-    public void piirra(Graphics graphics)
-    {
-       if(kuvio!=null)
-       {
-           for(int i=0; i<4; i++)
-           {
-               graphics.fillRect(kuvio.palikanSijainti(i).getX()*40, kuvio.palikanSijainti(i).getY()*40, 40, 40);
-           }
-       }
-       
-       
+
+    public void piirra(Graphics graphics) {
+        if (kuvio != null) {
+            for (int i = 0; i < 4; i++) {
+                graphics.fillRect(kuvio.palikanSijainti(i).getX() * 40, kuvio.palikanSijainti(i).getY() * 40, 40, 40);
+            }
+        }
+
     }
-    public void piirraUudelleen(Component component)
-    {
+
+    public void piirraUudelleen(Component component) {
         component.repaint();
     }
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 /**
  * Yksi tetriminoista
+ *
  * @author Karoliina
  */
 public class SuunnikasOikealle extends Tetrimino {
@@ -35,8 +36,8 @@ public class SuunnikasOikealle extends Tetrimino {
         palikat.add(neljaspalikka);
     }
     /*
-    Palauttaa tietyn palikan 
-    */
+     Palauttaa tietyn palikan 
+     */
 
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
@@ -44,8 +45,8 @@ public class SuunnikasOikealle extends Tetrimino {
         return palautettava;
     }
     /*
-    Palauttaa tetriminon palikat
-    */
+     Palauttaa tetriminon palikat
+     */
 
     public ArrayList palautaKuvio() {
         return this.palikat;

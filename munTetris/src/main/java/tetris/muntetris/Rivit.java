@@ -32,23 +32,21 @@ public class Rivit {
     }
 
     /*
-    Palauttaa, montako riviä listassa on
+     Palauttaa, montako riviä listassa on
      */
-
     public int rivienMaara() {
         return this.rivit.size();
     }
 
     /*
-    Poistaa rivin
+     Poistaa rivin
      */
-
     public void poistaRivi(int i) {
         this.rivit.remove(i);
     }
-    public void lisaaKuvio(Kuvio kuvio)
-    {
-        
+
+    public void lisaaKuvio(Kuvio kuvio) {
+
     }
 
     /**
@@ -84,8 +82,7 @@ public class Rivit {
          *
          * for (int i = 0; i < tila; i++) { if (r.annaPalikka(kohta + i) ==
          * false) { palautettava = false; } } return palautettava; } else {
-         * return false;
-        }*
+         * return false; }*
          */
     }
 
