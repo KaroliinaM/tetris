@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.muntetris;
+package tetris.muntetris.tetriminot;
 
 import java.util.ArrayList;
 
 /**
- *Yksi tetriminoista
- * 
+ * Yksi tetriminoista
+ *
  * @author Karoliina
  */
-public class LVasemmalle implements Tetrimino {
+public class Nelio extends Tetrimino {
 
     private ArrayList<Palikka> palikat;
     private int x;
@@ -21,24 +21,23 @@ public class LVasemmalle implements Tetrimino {
     private Palikka tokapalikka;
     private Palikka kolmaspalikka;
     private Palikka neljaspalikka;
-    private int kierto;
+    
 
-    public LVasemmalle() {
-        this.kierto = 0;
+    public Nelio() {
         this.palikat = new ArrayList<Palikka>();
         this.ekapalikka = new Palikka(6, 0);
         palikat.add(ekapalikka);
         this.tokapalikka = new Palikka(7, 0);
         palikat.add(tokapalikka);
-        this.kolmaspalikka = new Palikka(7, 1);
+        this.kolmaspalikka = new Palikka(6, 1);
         palikat.add(kolmaspalikka);
-        this.neljaspalikka = new Palikka(7, 2);
+        this.neljaspalikka = new Palikka(7, 1);
         palikat.add(neljaspalikka);
-    }
-    /*
-    Palauttaa tietyn palikan 
-    */
 
+    }
+       /*
+    Palauttaa tietyn palikan 
+     */
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
 
@@ -46,14 +45,17 @@ public class LVasemmalle implements Tetrimino {
     }
     /*
     Palauttaa tetriminon palikat
-    */
-
+     */
     public ArrayList palautaKuvio() {
         return this.palikat;
     }
-
     public void kierra() {
 
     }
+
+ 
+    
+
+    
 
 }

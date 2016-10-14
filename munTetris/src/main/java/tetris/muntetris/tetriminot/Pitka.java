@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.muntetris;
+package tetris.muntetris.tetriminot;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *Yksi tetriminoista
  * @author Karoliina
  */
-public class Pitka implements Tetrimino {
+public class Pitka extends Tetrimino {
 
     private ArrayList<Palikka> palikat;
     private int x;
@@ -54,31 +54,31 @@ public class Pitka implements Tetrimino {
     public void kierra() {
         if (kierto == 0) {
 
-            this.palikat.get(0).setX(6);
-            this.palikat.get(0).setY(0);
+            this.palikat.get(0).setX(this.palikat.get(0).getX()-2);
+            this.palikat.get(0).setY(this.palikat.get(0).getY()+2);
 
-            this.palikat.get(1).setX(7);
-            this.palikat.get(1).setY(0);
+            this.palikat.get(1).setX(this.palikat.get(1).getX()-1);
+            this.palikat.get(1).setY(this.palikat.get(1).getY()+1);
 
-            this.palikat.get(2).setX(8);
-            this.palikat.get(2).setY(0);
+            this.palikat.get(2).setX(this.palikat.get(2).getX());
+            this.palikat.get(2).setY(this.palikat.get(2).getY());
 
-            this.palikat.get(3).setX(9);
-            this.palikat.get(3).setY(0);
+            this.palikat.get(3).setX(this.palikat.get(3).getX()+1);
+            this.palikat.get(3).setY(this.palikat.get(3).getY()-1);
             kierto++;
         } else if (kierto == 1) {
 
-            this.palikat.get(0).setX(6);
-            this.palikat.get(0).setY(0);
+            this.palikat.get(0).setX(this.palikat.get(0).getX()+2);
+            this.palikat.get(0).setY(this.palikat.get(0).getY()-2);
 
-            this.palikat.get(1).setX(6);
-            this.palikat.get(1).setY(1);
+            this.palikat.get(1).setX(this.palikat.get(1).getX()+1);
+            this.palikat.get(1).setY(this.palikat.get(1).getY()-1);
 
-            this.palikat.get(2).setX(6);
-            this.palikat.get(2).setY(2);
+            this.palikat.get(2).setX(this.palikat.get(2).getX());
+            this.palikat.get(2).setY(this.palikat.get(2).getY());
 
-            this.palikat.get(3).setX(6);
-            this.palikat.get(3).setY(3);
+            this.palikat.get(3).setX(this.palikat.get(3).getX()-1);
+            this.palikat.get(3).setY(this.palikat.get(3).getY()+1);
 
             kierto--;
         }

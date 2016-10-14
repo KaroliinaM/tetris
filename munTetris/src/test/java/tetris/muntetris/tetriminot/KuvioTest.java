@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.muntetris;
+package tetris.muntetris.tetriminot;
 
+import tetris.muntetris.tetriminot.Palikka;
+import tetris.muntetris.tetriminot.Kuvio;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

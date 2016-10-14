@@ -8,7 +8,7 @@ package kayttis.muntetris;
 import java.awt.*;
 import javax.swing.*;
 import tetris.muntetris.Kentta;
-import tetris.muntetris.Kuvio;
+import tetris.muntetris.tetriminot.Kuvio;
 
 /**
  *

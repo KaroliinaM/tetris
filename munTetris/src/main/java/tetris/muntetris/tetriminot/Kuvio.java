@@ -3,8 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.muntetris;
+package tetris.muntetris.tetriminot;
 
+import tetris.muntetris.tetriminot.Tetrimino;
+import tetris.muntetris.tetriminot.SuunnikasOikealle;
+import tetris.muntetris.tetriminot.Kolmipiikki;
+import tetris.muntetris.tetriminot.Nelio;
+import tetris.muntetris.tetriminot.LOikealle;
+import tetris.muntetris.tetriminot.LVasemmalle;
+import tetris.muntetris.tetriminot.Pitka;
+import tetris.muntetris.tetriminot.SuunnikasVasemmalle;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -40,7 +48,7 @@ public class Kuvio {
             this.tetrimino = new Pitka();
 
         } else if (tyyppi == 2) { //l oikealle
-            this.tetrimino = new Loikealle();
+            this.tetrimino = new LOikealle();
 
         } else if (tyyppi == 3) { //l vasemmalle
             this.tetrimino = new LVasemmalle();
@@ -178,7 +186,8 @@ public class Kuvio {
 
         }
         if (this.tyyppi == 3) {
-            System.out.println();
+            this.tetrimino.kierra();
+            this.testaaRajat();
 
         }
         if (this.tyyppi == 4) {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.muntetris;
+package tetris.muntetris.tetriminot;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * 
  * @author Karoliina
  */
-public class Kolmipiikki implements Tetrimino {
+public class Kolmipiikki extends Tetrimino {
 
     private ArrayList<Palikka> palikat;
     private int x;

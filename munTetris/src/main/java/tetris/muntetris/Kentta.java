@@ -5,6 +5,7 @@
  */
 package tetris.muntetris;
 
+import tetris.muntetris.tetriminot.Kuvio;
 import java.awt.*;
 import kayttis.muntetris.Kayttoliittyma;
 
