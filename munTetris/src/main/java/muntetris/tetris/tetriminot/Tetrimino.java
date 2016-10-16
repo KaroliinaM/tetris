@@ -45,8 +45,6 @@ public abstract class Tetrimino {
      * Kiertää tetriminon.
      */
 
-    public void kierra() {
-
-    }
+    public abstract void kierra();
 
 }

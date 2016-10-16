@@ -54,6 +54,10 @@ public class Kentta {
     public void asetaKuvio(Kuvio kuvio) {
         this.kuvio = kuvio;
     }
+    public void asetaRivit(Rivit rivit)
+    {
+        this.rivit=rivit;
+    }
     /**
      * Piirtää kuvio-muuttujan kentälle.
      * @param graphics 
@@ -63,6 +67,20 @@ public class Kentta {
         if (kuvio != null) {
             for (int i = 0; i < 4; i++) {
                 graphics.fillRect(kuvio.palikanSijainti(i).getX() * 40, kuvio.palikanSijainti(i).getY() * 40, 40, 40);
+            }
+        }
+        if(rivit.rivienMaara()>0)
+        {
+            for(int i=0; i<rivit.rivienMaara(); i++)
+            {
+                Rivi r=rivit.getRivi(i);
+                for(int j=0; j<r.annaRivinkoko()-1; j++)
+                {
+                    if(r.annaPalikka(j))
+                    {
+                       // graphics.fillRect(j*40, (17-i)*40, 40, 40);
+                    }
+                }
             }
         }
 

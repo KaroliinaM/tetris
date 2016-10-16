@@ -35,11 +35,8 @@ public class RivitTest {
     
     @Before
     public void setUp() {
-        Rivit rivit=new Rivit();
-        Rivi rivi=new Rivi();
-        Rivi toinenRivi=new Rivi();
-        rivit.lisaaRivi(rivi);
-        rivit.lisaaRivi(toinenRivi);
+        rivit=new Rivit();
+
     }
     
   /**  @After
@@ -51,12 +48,23 @@ public class RivitTest {
     //
   //  @Test
     //public void hello() {}
+    @Test
+    public void listanKoko()
+    {
+        //Rivit rivit=new Rivit();
+        assertEquals(rivit.rivienMaara(), 0);
+        rivit.lisaaRivi(new Rivi());
+        rivit.lisaaRivi(new Rivi());
+        assertEquals(rivit.rivienMaara(), 2);
+    }
+    
+    
     
     @Test
      
     public void rivitLisays()
     {
-      Rivit rivit=new Rivit();
+      //Rivit rivit=new Rivit();
         Rivi rivi=new Rivi();
         Rivi toinenRivi=new Rivi();
         rivit.lisaaRivi(rivi);
@@ -65,11 +73,11 @@ public class RivitTest {
         
     }
     
-    @Test
+   @Test
     
     public void rivinPoisto()
     {
-       Rivit rivit=new Rivit();
+       //Rivit rivit=new Rivit();
        Rivi rivi=new Rivi();
        Rivi toinenRivi=new Rivi();
        rivit.lisaaRivi(rivi);

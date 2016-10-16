@@ -200,15 +200,18 @@ public class Kuvio {
 
         }
         if (this.tyyppi == 4) {
-            System.out.println();
+            this.tetrimino.kierra();
+            this.testaaRajat();
 
         }
         if (this.tyyppi == 5) {
-            System.out.println();
+            this.tetrimino.kierra();
+            this.testaaRajat();
 
         }
         if (this.tyyppi == 6) {
-            System.out.println();
+            this.tetrimino.kierra();
+            this.testaaRajat();
 
         }
     }
@@ -232,7 +235,8 @@ public class Kuvio {
 
     public int leveys(int kohta) {
         int leveys = 0;
-        kohta += this.sijaintiAlhaalla().getY();
+        kohta--;
+        kohta=this.sijaintiAlhaalla().getY()-kohta;
         for (int i = 0; i < 4; i++) {
             if (this.tetrimino.getPalikka(i).getY() == kohta) {
                 leveys++;
@@ -254,7 +258,7 @@ public class Kuvio {
                 paikka = this.tetrimino.getPalikka(i).getX();
             }
         }
-        return kohta;
+        return paikka;
 
     }
     /**

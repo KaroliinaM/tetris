@@ -38,11 +38,13 @@ public class SuunnikasVasemmalle extends Tetrimino {
         this.neljaspalikka = new Palikka(8, 1);
         palikat.add(neljaspalikka);
     }
+    
     /**
      * Palauttaa tietyn palikan kuviosta.
      * @param x palikan numero.
      * @return palikka.
      */
+    
 
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
@@ -62,6 +64,36 @@ public class SuunnikasVasemmalle extends Tetrimino {
      */
 
     public void kierra() {
+        if (kierto == 0) {
+
+            this.palikat.get(0).setX(this.palikat.get(0).getX()+1);
+            this.palikat.get(0).setY(this.palikat.get(0).getY());
+
+            this.palikat.get(1).setX(this.palikat.get(1).getX());
+            this.palikat.get(1).setY(this.palikat.get(1).getY() - 1);
+
+            this.palikat.get(2).setX(this.palikat.get(2).getX()-1);
+            this.palikat.get(2).setY(this.palikat.get(2).getY());
+
+            this.palikat.get(3).setX(this.palikat.get(3).getX() - 2);
+            this.palikat.get(3).setY(this.palikat.get(3).getY() - 1);
+            kierto++;
+        } else if (kierto == 1) {
+
+            this.palikat.get(0).setX(this.palikat.get(0).getX() - 1);
+            this.palikat.get(0).setY(this.palikat.get(0).getY());
+
+            this.palikat.get(1).setX(this.palikat.get(1).getX());
+            this.palikat.get(1).setY(this.palikat.get(1).getY() + 1);
+
+            this.palikat.get(2).setX(this.palikat.get(2).getX()+1);
+            this.palikat.get(2).setY(this.palikat.get(2).getY());
+
+            this.palikat.get(3).setX(this.palikat.get(3).getX() + 2);
+            this.palikat.get(3).setY(this.palikat.get(3).getY() + 1);
+
+            kierto--;
+        }
 
     }
 

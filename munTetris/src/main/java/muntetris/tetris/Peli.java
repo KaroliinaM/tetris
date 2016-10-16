@@ -27,6 +27,7 @@ public class Peli {
         this.loppu = false;
         this.kentta = new Kentta();
         this.rivit = new Rivit();
+        kentta.asetaRivit(rivit);
         Kayttoliittyma kayttis = new Kayttoliittyma(kentta);
         kayttis.run();
 
@@ -41,7 +42,6 @@ public class Peli {
                 // for(int i=0; i<5; i++){
                 this.kuvio.liiku();
                 kayttis.paivita();
-                System.out.println("hei");
                 try {
                     Thread.sleep(1024);
 
@@ -49,6 +49,42 @@ public class Peli {
                     System.out.println("virhe palikan liikkumisessa");
                 }
             }
+            if(rivit.rivienMaara()==0)
+            {
+                for(int i=0; i<this.kuvio.kuvionKorkeus(); i++)
+                {
+                    rivit.lisaaRivi(new Rivi());
+                }
+            }
+            for (int i=0; i<rivit.rivienMaara(); i++)
+            {
+                Rivi r=rivit.getRivi(i);
+                int k=this.kuvio.kuvionKorkeus()-(i);
+                for(int j=0; j<kuvio.leveys(k+1); i++)
+                {
+                    r.asetaPalikka(kuvio.rivinLaita(k)+j);
+                }
+                //kayttis.paivita();
+            }
+            for(int i=0; i<rivit.rivienMaara(); i++)
+            {
+                Rivi r=rivit.getRivi(i);
+                for(int j=0; j<r.annaRivinkoko(); j++)
+                {
+                    if(r.annaPalikka(j))
+                    {
+                        System.out.print("o");
+                    }
+                    else
+                    {
+                        System.out.print("i");
+                    }
+                }
+                System.out.print("\n");
+                    
+            }
+            
+            
             /**
              * boolean mahtuu=this.rivit.onkoTilaa(kuvio, kentta);
              * while(mahtuu==true&&this.kuvio.sijaintiAlhaalla().getY()<17) {

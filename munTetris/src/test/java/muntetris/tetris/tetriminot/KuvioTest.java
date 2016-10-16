@@ -196,7 +196,7 @@ public class KuvioTest {
     @Test
 
     public void lOikealleKierto() {
-        
+
         //ei toimi, ja lisäksi pitäisi testata eri luokassa
         boolean testi = false;
         while (testi == false) {
@@ -235,13 +235,13 @@ public class KuvioTest {
         int lopussax = lopussa.getX();
 
         if (alussax != lopussax) {
-           // testi = false;
+            // testi = false;
         }
 
         assertEquals(true, testi);
 
     }
-    
+
     @Test
 
     public void pysyyRajoissa() //testataan, että jos kuviota kierretään kentän laidassa, pysyykö se kentällä
@@ -319,17 +319,59 @@ public class KuvioTest {
         assertEquals(this.kuvio.kuvionKorkeus(), 1);
 
     }
+
     @Test
-    public void liikuttaminen()
+    public void kohdanLeveys() {
+        boolean testi = false;
+        while (testi == false) {
+            if (kuvio.getTyyppi() != 6) {
+                this.kuvio = new Kuvio();
+
+            } else {
+                testi = true;
+            }
+        }
+
+        assertEquals(1, kuvio.leveys(1));
+        assertEquals(3, kuvio.leveys(2));
+
+        testi = false;
+        while (testi == false) {
+            if (kuvio.getTyyppi() != 2) {
+                this.kuvio = new Kuvio();
+
+            } else {
+                testi = true;
+            }
+        }
+        assertEquals(1, kuvio.leveys(1));
+        assertEquals(2, kuvio.leveys(3));
+
+    }
+    @Test
+    public void rivinLaita()
     {
+        boolean testi = false;
+        while (testi == false) {
+            if (kuvio.getTyyppi() != 6) {
+                this.kuvio = new Kuvio();
+
+            } else {
+                testi = true;
+            }
+        }
+        assertEquals(6, kuvio.rivinLaita(0));
+        
+    }
+
+    @Test
+    public void liikuttaminen() {
         //kuvio=new Kuvio();
-        int y=kuvio.sijaintiAlhaalla().getY();
-        for(int i=0; i<5; i++)
-        {
+        int y = kuvio.sijaintiAlhaalla().getY();
+        for (int i = 0; i < 5; i++) {
             kuvio.liiku();
         }
-        assertEquals(kuvio.sijaintiAlhaalla().getY(), y+5);
+        assertEquals(kuvio.sijaintiAlhaalla().getY(), y + 5);
     }
-    
 
 }

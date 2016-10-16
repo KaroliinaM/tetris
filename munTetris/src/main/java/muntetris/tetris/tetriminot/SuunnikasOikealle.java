@@ -43,6 +43,7 @@ public class SuunnikasOikealle extends Tetrimino {
      * @param x palikan numero.
      * @return palikka.
      */
+    
 
     public Palikka getPalikka(int x) {
         Palikka palautettava = this.palikat.get(x);
@@ -53,6 +54,7 @@ public class SuunnikasOikealle extends Tetrimino {
      * Palauttaa koko listan.
      * @return lista palikoista.
      */
+    
 
     public ArrayList palautaKuvio() {
         return this.palikat;
@@ -62,6 +64,36 @@ public class SuunnikasOikealle extends Tetrimino {
      */
 
     public void kierra() {
+        if (kierto == 0) {
+
+            this.palikat.get(0).setX(this.palikat.get(0).getX()+1);
+            this.palikat.get(0).setY(this.palikat.get(0).getY());
+
+            this.palikat.get(1).setX(this.palikat.get(1).getX());
+            this.palikat.get(1).setY(this.palikat.get(1).getY() - 1);
+
+            this.palikat.get(2).setX(this.palikat.get(2).getX()-1);
+            this.palikat.get(2).setY(this.palikat.get(2).getY());
+
+            this.palikat.get(3).setX(this.palikat.get(3).getX() - 2);
+            this.palikat.get(3).setY(this.palikat.get(3).getY() - 1);
+            kierto++;
+        } else if (kierto == 1) {
+
+            this.palikat.get(0).setX(this.palikat.get(0).getX() - 1);
+            this.palikat.get(0).setY(this.palikat.get(0).getY());
+
+            this.palikat.get(1).setX(this.palikat.get(1).getX());
+            this.palikat.get(1).setY(this.palikat.get(1).getY() + 1);
+
+            this.palikat.get(2).setX(this.palikat.get(2).getX()+1);
+            this.palikat.get(2).setY(this.palikat.get(2).getY());
+
+            this.palikat.get(3).setX(this.palikat.get(3).getX() + 2);
+            this.palikat.get(3).setY(this.palikat.get(3).getY() + 1);
+
+            kierto--;
+        }
 
     }
 

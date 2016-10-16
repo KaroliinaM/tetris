@@ -51,7 +51,7 @@ public class Rivi {
      */
 
     public int annaRivinkoko() {
-        return 10;
+       return this.rivi.size();
     }
     /**
      * Palauttaa tiedon, ono yksittäinen paikka varattu.
