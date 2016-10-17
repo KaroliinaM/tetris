@@ -360,7 +360,8 @@ public class KuvioTest {
                 testi = true;
             }
         }
-        assertEquals(6, kuvio.rivinLaita(0));
+        assertEquals(6, kuvio.rivinLaita(2));
+        assertEquals(7, kuvio.rivinLaita(1));
         
     }
 

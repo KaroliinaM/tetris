@@ -15,6 +15,7 @@ import muntetris.tetris.tetriminot.Pitka;
 import muntetris.tetris.tetriminot.SuunnikasVasemmalle;
 import java.util.ArrayList;
 import java.util.Random;
+import muntetris.tetris.Kentta;
 
 /**
  * Määrittelee tetriksen kuvion käyttäytymisen.
@@ -32,6 +33,7 @@ public class Kuvio {
     private Tetrimino tetrimino;
     private ArrayList<Palikka> palikat;
     private int kierto;
+    private Kentta kentta;
     /**
      * Konstruktori arpoo, millainen kuvio luodaan.
      */
@@ -187,31 +189,61 @@ public class Kuvio {
         if (this.tyyppi == 1) {
             this.tetrimino.kierra();
             this.testaaRajat();
+            if(!this.kentta.onkoTilaa())
+            {
+                this.tetrimino.kierra();
+            }
 
         }
         if (this.tyyppi == 2) {
             this.tetrimino.kierra();
             this.testaaRajat();
+            if(!this.kentta.onkoTilaa())
+            {
+                this.tetrimino.kierra();
+                this.tetrimino.kierra();
+                this.tetrimino.kierra();
+            }
 
         }
         if (this.tyyppi == 3) {
             this.tetrimino.kierra();
             this.testaaRajat();
+            if(!this.kentta.onkoTilaa())
+            {
+                this.tetrimino.kierra();
+                this.tetrimino.kierra();
+                this.tetrimino.kierra();
+            }
 
         }
         if (this.tyyppi == 4) {
             this.tetrimino.kierra();
             this.testaaRajat();
+            if(!this.kentta.onkoTilaa())
+            {
+                this.tetrimino.kierra();
+            }
 
         }
         if (this.tyyppi == 5) {
             this.tetrimino.kierra();
             this.testaaRajat();
+            if(!this.kentta.onkoTilaa())
+            {
+                this.tetrimino.kierra();
+            }
 
         }
         if (this.tyyppi == 6) {
             this.tetrimino.kierra();
             this.testaaRajat();
+            if(!this.kentta.onkoTilaa())
+            {
+                this.tetrimino.kierra();
+                this.tetrimino.kierra();
+                this.tetrimino.kierra();
+            }
 
         }
     }
@@ -252,8 +284,9 @@ public class Kuvio {
 
     public int rivinLaita(int kohta) {
         int paikka = 30;
-        kohta += this.sijaintiAlhaalla().getY();
-        for (int i = 1; i < 4; i++) {
+        kohta--;
+        kohta=this.sijaintiAlhaalla().getY()-kohta;
+        for (int i = 0; i < 4; i++) {
             if (this.tetrimino.getPalikka(i).getY() == kohta && this.tetrimino.getPalikka(i).getX() < paikka) {
                 paikka = this.tetrimino.getPalikka(i).getX();
             }
@@ -265,11 +298,33 @@ public class Kuvio {
      * Liikuttaa tetriminoa alaspäin.
      */
 
-    public void liiku() {
+    public boolean liiku() {
+        if(this.sijaintiAlhaalla().getY()<18)
+        {
         for (int i = 0; i < 4; i++) {
             this.tetrimino.getPalikka(i).yksiAlaspain();
-
         }
+        if(!this.kentta.onkoTilaa())
+        {
+            this.takaisin();
+            return true;
+            
+        }
+        
+        }
+        return false;
+        
+        
+    }
+    public void takaisin()
+    {
+        for (int i = 0; i < 4; i++) {
+            this.tetrimino.getPalikka(i).yksiYlospain();
+        }
+    }
+    public void haeKentta(Kentta kentta)
+    {
+        this.kentta=kentta;
     }
 
 }

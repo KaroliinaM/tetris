@@ -8,9 +8,11 @@ package muntetris.tetris;
 import muntetris.tetris.tetriminot.Kuvio;
 import java.util.ArrayList;
 import muntetris.kayttis.Kayttoliittyma;
+import muntetris.tetris.tetriminot.Palikka;
 
 /**
  * Luokka, joka vie peliä eteenpäin.
+ *
  * @author kmietola
  */
 public class Peli {
@@ -19,11 +21,15 @@ public class Peli {
     private boolean loppu;
     private Kuvio kuvio;
     private Rivit rivit;
+    private boolean uusiKuvio;
+    int pisteet;
+
     /**
      * Käynnistää pelin.
      */
 
     public Peli() {
+        int pisteet=0;
         this.loppu = false;
         this.kentta = new Kentta();
         this.rivit = new Rivit();
@@ -32,16 +38,31 @@ public class Peli {
         kayttis.run();
 
         while (loppu == false) {
+            uusiKuvio=false;
             this.kuvio = new Kuvio();
+            this.kuvio.haeKentta(kentta);
             System.out.println("tyyppi on " + kuvio.getTyyppi());
             //this.kuvio.liiku();
             kentta.asetaKuvio(kuvio);
             kayttis.tetriminoKuuntelijaan(kuvio);
 
-            while (this.kuvio.sijaintiAlhaalla().getY() < this.kentta.getAlin()) {
-                // for(int i=0; i<5; i++){
-                this.kuvio.liiku();
+            while (uusiKuvio==false) {
+
+                uusiKuvio=this.kuvio.liiku();
+                if(!kentta.onkoTilaa())
+                {
+                    this.kuvio.takaisin();
+                    uusiKuvio=true;
+                    break;
+                }
+                if(this.kuvio.sijaintiAlhaalla().getY() == this.kentta.getAlin())
+                {
+                    uusiKuvio=true;
+                    break;
+                }
                 kayttis.paivita();
+
+                    
                 try {
                     Thread.sleep(1024);
 
@@ -49,49 +70,16 @@ public class Peli {
                     System.out.println("virhe palikan liikkumisessa");
                 }
             }
-            if(rivit.rivienMaara()==0)
-            {
-                for(int i=0; i<this.kuvio.kuvionKorkeus(); i++)
-                {
-                    rivit.lisaaRivi(new Rivi());
-                }
+            for (int i = 0; i < 4; i++) {
+                rivit.lisaaPalikka(new Palikka(kuvio.palikanSijainti(i).getX(), kuvio.palikanSijainti(i).getY()));
             }
-            for (int i=0; i<rivit.rivienMaara(); i++)
-            {
-                Rivi r=rivit.getRivi(i);
-                int k=this.kuvio.kuvionKorkeus()-(i);
-                for(int j=0; j<kuvio.leveys(k+1); i++)
-                {
-                    r.asetaPalikka(kuvio.rivinLaita(k)+j);
-                }
-                //kayttis.paivita();
-            }
-            for(int i=0; i<rivit.rivienMaara(); i++)
-            {
-                Rivi r=rivit.getRivi(i);
-                for(int j=0; j<r.annaRivinkoko(); j++)
-                {
-                    if(r.annaPalikka(j))
-                    {
-                        System.out.print("o");
-                    }
-                    else
-                    {
-                        System.out.print("i");
-                    }
-                }
-                System.out.print("\n");
-                    
-            }
-            
-            
+
             /**
              * boolean mahtuu=this.rivit.onkoTilaa(kuvio, kentta);
              * while(mahtuu==true&&this.kuvio.sijaintiAlhaalla().getY()<17) {
              * this.kuvio.liiku(); mahtuu=this.rivit.onkoTilaa(kuvio, kentta);
-          }*
+             * }*
              */
-
         }
 
     }

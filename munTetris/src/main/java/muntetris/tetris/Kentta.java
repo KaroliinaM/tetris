@@ -8,6 +8,7 @@ package muntetris.tetris;
 import muntetris.tetris.tetriminot.Kuvio;
 import java.awt.*;
 import muntetris.kayttis.Kayttoliittyma;
+import muntetris.tetris.tetriminot.Palikka;
 
 /**
  * Pelin alustan määrittävä luokka.
@@ -58,6 +59,22 @@ public class Kentta {
     {
         this.rivit=rivit;
     }
+    public boolean onkoTilaa()
+    {
+        boolean palautettava=true;
+        for(int i=0; i<4; i++)
+        {
+           Palikka p1=this.kuvio.palikanSijainti(i);
+           for(int j=0; j<this.rivit.PalikoidenMaara(); j++)
+           {
+               if(this.rivit.getPalikka(j).getX()==p1.getX()&&this.rivit.getPalikka(j).getY()==p1.getY())
+               {
+                   palautettava=false;
+               }
+           }
+        }
+        return palautettava;
+    }
     /**
      * Piirtää kuvio-muuttujan kentälle.
      * @param graphics 
@@ -69,18 +86,11 @@ public class Kentta {
                 graphics.fillRect(kuvio.palikanSijainti(i).getX() * 40, kuvio.palikanSijainti(i).getY() * 40, 40, 40);
             }
         }
-        if(rivit.rivienMaara()>0)
+        if(rivit.PalikoidenMaara()>0)
         {
-            for(int i=0; i<rivit.rivienMaara(); i++)
+            for(int i=0; i<rivit.PalikoidenMaara(); i++)
             {
-                Rivi r=rivit.getRivi(i);
-                for(int j=0; j<r.annaRivinkoko()-1; j++)
-                {
-                    if(r.annaPalikka(j))
-                    {
-                       // graphics.fillRect(j*40, (17-i)*40, 40, 40);
-                    }
-                }
+                graphics.fillRect(rivit.getPalikka(i).getX() * 40, rivit.getPalikka(i).getY() * 40, 40, 40);
             }
         }
 

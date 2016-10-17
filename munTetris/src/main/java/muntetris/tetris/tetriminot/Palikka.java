@@ -62,5 +62,9 @@ public class Palikka {
     public void yksiAlaspain() {
         this.y++;
     }
+    public void yksiYlospain()
+    {
+        this.y--;
+    }
 
 }
