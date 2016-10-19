@@ -6,8 +6,8 @@
 
 package muntetris.tetris;
 
-import muntetris.tetris.Rivi;
 import muntetris.tetris.Rivit;
+import muntetris.tetris.tetriminot.Palikka;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,43 +49,19 @@ public class RivitTest {
   //  @Test
     //public void hello() {}
     @Test
-    public void listanKoko()
-    {
-        //Rivit rivit=new Rivit();
-        assertEquals(rivit.rivienMaara(), 0);
-        rivit.lisaaRivi(new Rivi());
-        rivit.lisaaRivi(new Rivi());
-        assertEquals(rivit.rivienMaara(), 2);
-    }
-    
-    
-    
-    @Test
-     
-    public void rivitLisays()
-    {
-      //Rivit rivit=new Rivit();
-        Rivi rivi=new Rivi();
-        Rivi toinenRivi=new Rivi();
-        rivit.lisaaRivi(rivi);
-        rivit.lisaaRivi(toinenRivi);
-        assertEquals(2, rivit.rivienMaara());       
-        
-    }
-    
-   @Test
-    
     public void rivinPoisto()
     {
-       //Rivit rivit=new Rivit();
-       Rivi rivi=new Rivi();
-       Rivi toinenRivi=new Rivi();
-       rivit.lisaaRivi(rivi);
-       rivit.lisaaRivi(toinenRivi);
-       rivit.getRivi(1).asetaPalikka(4);
-       rivit.poistaRivi(0);
-       assertEquals(1, rivit.rivienMaara());
-       assertEquals(true, rivit.getRivi(0).annaPalikka(4));   
+        this.rivit.lisaaPalikka(new Palikka(1, 2));
+        this.rivit.lisaaPalikka(new Palikka(1, 1));
+        this.rivit.lisaaPalikka(new Palikka(1, 3));
+        this.rivit.lisaaPalikka(new Palikka(2, 2));
+        this.rivit.lisaaPalikka(new Palikka(2, 1));
+        this.rivit.poistaRivi(2);
+        for(int i=0;i<this.rivit.PalikoidenMaara(); i++)
+        {
+            System.out.println("palikka arvolla " + rivit.getPalikka(i).getY()+ "jäljellä");
+        }
+        
         
     }
     

@@ -66,5 +66,13 @@ public class Palikka {
     {
         this.y--;
     }
+    public void yksiVasemmalle()
+    {
+        this.x--;
+    }
+    public void yksiOikealle()
+    {
+        this.x++;
+    }
 
 }

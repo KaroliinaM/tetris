@@ -16,3 +16,9 @@ Päivä | Tunnit | Kuvaus
 12.10.2016 | 3h |Käyttöliittymän aloittaminen
 13.10.2016 | 5h |Käyttöliittymän jatkaminen
 14.10.2016 | 5h |Dokumentaation korjailua ja javadocien kanssa säätöä.
+15.10.2016 | 3h |projektin tekemistä.
+16.10.2016 | 4h |projektin tekemistä.
+17.10.2016 | 6h |projektin tekemistä
+18.10.2016 | 5h |projektin tekemistä
+19.10.2016 | 3h |luokkien hiomista
+

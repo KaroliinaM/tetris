@@ -16,6 +16,7 @@ import muntetris.tetris.Kentta;
 public class Alusta extends JPanel {
 
     private Kentta kentta;
+    private int palkki;
     /**
      * Luokka saa arvonaan kentän, jonka kauttaa määrittyy piirrettävien elementtien sijainti.
      * @param kentta 
@@ -24,6 +25,11 @@ public class Alusta extends JPanel {
     public Alusta(Kentta kentta) {
         super.setBackground(Color.BLACK);
         this.kentta = kentta;
+        
+    }
+    public void setPuoli(int kumpi)
+    {
+        this.palkki=kumpi;
     }
     /**
      * Metodi piirtää elementit kentälle.
@@ -33,7 +39,9 @@ public class Alusta extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
+        kentta.getPiirtoalusta(this.palkki);
         kentta.piirra(graphics);
     }
+    
 
 }

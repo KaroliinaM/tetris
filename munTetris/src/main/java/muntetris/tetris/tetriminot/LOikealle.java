@@ -14,29 +14,25 @@ import java.util.ArrayList;
  */
 public class LOikealle extends Tetrimino {
 
-    private ArrayList<Palikka> palikat;
-    private int x;
-    private int y;
-    private Palikka ekapalikka;
-    private Palikka tokapalikka;
-    private Palikka kolmaspalikka;
-    private Palikka neljaspalikka;
+//    private ArrayList<Palikka> palikat;
+//    private int x;
+//    private int y;
+//    private Palikka ekapalikka;
+//    private Palikka tokapalikka;
+//    private Palikka kolmaspalikka;
+//    private Palikka neljaspalikka;
     private int kierto;
     /**
      * Kuvio luodaan arraylistina konstruktorissa.
      */
 
     public LOikealle() {
+        super();
         this.kierto = 0;
-        this.palikat = new ArrayList<Palikka>();
-        this.ekapalikka = new Palikka(7, 0);
-        palikat.add(ekapalikka);
-        this.tokapalikka = new Palikka(6, 0);
-        palikat.add(tokapalikka);
-        this.kolmaspalikka = new Palikka(6, 1);
-        palikat.add(kolmaspalikka);
-        this.neljaspalikka = new Palikka(6, 2);
-        palikat.add(neljaspalikka);
+        super.palikat.add(new Palikka(7, 0));
+        super.palikat.add(new Palikka(6, 0));
+        palikat.add(new Palikka(6, 1));
+        palikat.add(new Palikka(6, 2));
     }
     /**
      * Palauttaa tietyn palikan kuviosta.
@@ -44,19 +40,19 @@ public class LOikealle extends Tetrimino {
      * @return palikka.
      */
 
-    public Palikka getPalikka(int x) {
-        Palikka palautettava = this.palikat.get(x);
-
-        return palautettava;
-    }
-    /**
-     * Palauttaa koko listan.
-     * @return lista palikoista.
-     */
-
-    public ArrayList palautaKuvio() {
-        return this.palikat;
-    }
+//    public Palikka getPalikka(int x) {
+//        Palikka palautettava = this.palikat.get(x);
+//
+//        return palautettava;
+//    }
+//    /**
+//     * Palauttaa koko listan.
+//     * @return lista palikoista.
+//     */
+//
+//    public ArrayList palautaKuvio() {
+//        return this.palikat;
+//    }
     /**
      * Kiertää kuvion.
      */

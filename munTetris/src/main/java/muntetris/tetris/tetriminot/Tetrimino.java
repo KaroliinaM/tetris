@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public abstract class Tetrimino {
 
     protected ArrayList<Palikka> palikat;
+
     /**
      * varsinaisten tetriminoluokkien pitäisi yliajaa tämä.
      */
@@ -25,6 +26,7 @@ public abstract class Tetrimino {
 
     /**
      * Palauttaa tietyn palikan.
+     *
      * @param x palikan kohta.
      * @return palikka.
      */
@@ -33,18 +35,63 @@ public abstract class Tetrimino {
 
         return palautettava;
     }
+
     /**
      * Palauttaa kaikki palikat.
+     *
      * @return lista palikoista.
      */
 
     public ArrayList palautaKuvio() {
         return this.palikat;
     }
+
+    public Palikka Oikealla() {
+        Palikka oikealla = this.getPalikka(0); //palikat.get(0);
+        for (int i = 1; i < 4; i++) {
+            if (this.getPalikka(i).getX() > oikealla.getX()) {
+                oikealla = this.getPalikka(i);
+            }
+        }
+        return oikealla;
+    }
+
+    public Palikka Vasemmalla() {
+        Palikka vasemmalla = this.getPalikka(0);
+        for (int i = 1; i < 4; i++) {
+            if (this.getPalikka(i).getX() < vasemmalla.getX()) {
+                vasemmalla = this.getPalikka(i);
+            }
+        }
+        return vasemmalla;
+    }
+
+    public Palikka Alhaalla() {
+        Palikka alhaalla = this.getPalikka(0);
+        for (int i = 1; i < 4; i++) {
+            if (this.getPalikka(i).getY() > alhaalla.getY()) {
+                alhaalla = this.getPalikka(i);
+            }
+        }
+        return alhaalla;
+    }
+     public int Korkeus() {
+        int korkeus = 0;
+        int alin = this.Alhaalla().getY() + 1;
+        int ylin = this.Alhaalla().getY();
+
+        for (int i = 0; i < 4; i++) {
+            if (this.getPalikka(i).getY() < ylin) {
+                ylin = this.getPalikka(i).getY();
+            }
+        }
+        korkeus = alin - ylin;
+        return korkeus;
+    }
+
     /**
      * Kiertää tetriminon.
      */
-
     public abstract void kierra();
 
 }

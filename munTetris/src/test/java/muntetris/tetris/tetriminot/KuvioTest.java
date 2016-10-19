@@ -321,51 +321,6 @@ public class KuvioTest {
     }
 
     @Test
-    public void kohdanLeveys() {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 6) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-        }
-
-        assertEquals(1, kuvio.leveys(1));
-        assertEquals(3, kuvio.leveys(2));
-
-        testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 2) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-        }
-        assertEquals(1, kuvio.leveys(1));
-        assertEquals(2, kuvio.leveys(3));
-
-    }
-    @Test
-    public void rivinLaita()
-    {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 6) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-        }
-        assertEquals(6, kuvio.rivinLaita(2));
-        assertEquals(7, kuvio.rivinLaita(1));
-        
-    }
-
-    @Test
     public void liikuttaminen() {
         //kuvio=new Kuvio();
         int y = kuvio.sijaintiAlhaalla().getY();

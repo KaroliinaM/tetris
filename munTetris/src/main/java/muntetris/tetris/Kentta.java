@@ -19,8 +19,11 @@ public class Kentta {
     private int leveys;
     private int korkeus;
     private int alin;
+    private int kumpiPaneeli;
     private Kuvio kuvio;
+    private Kuvio seuraavaKuvio;
     private Rivit rivit;
+    private int pisteet;
     /**
      * Luonnissa määritetään kentäm mitat.
      */
@@ -55,6 +58,9 @@ public class Kentta {
     public void asetaKuvio(Kuvio kuvio) {
         this.kuvio = kuvio;
     }
+    public void asetaSeuraavaKuvio(Kuvio kuvio) {
+        this.seuraavaKuvio = kuvio;
+    }
     public void asetaRivit(Rivit rivit)
     {
         this.rivit=rivit;
@@ -79,8 +85,14 @@ public class Kentta {
      * Piirtää kuvio-muuttujan kentälle.
      * @param graphics 
      */
+    public void getPiirtoalusta(int kumpi)
+    {
+        this.kumpiPaneeli=kumpi;
+    }
 
     public void piirra(Graphics graphics) {
+        if(this.kumpiPaneeli==1)
+        {
         if (kuvio != null) {
             for (int i = 0; i < 4; i++) {
                 graphics.fillRect(kuvio.palikanSijainti(i).getX() * 40, kuvio.palikanSijainti(i).getY() * 40, 40, 40);
@@ -93,6 +105,16 @@ public class Kentta {
                 graphics.fillRect(rivit.getPalikka(i).getX() * 40, rivit.getPalikka(i).getY() * 40, 40, 40);
             }
         }
+        }
+        if(this.kumpiPaneeli==2)
+        {
+            if (this.seuraavaKuvio != null) {
+            for (int i = 0; i < 4; i++) {
+                graphics.fillRect(this.seuraavaKuvio.palikanSijainti(i).getX() * 40 - 80, this.seuraavaKuvio.palikanSijainti(i).getY() * 40 + 80, 40, 40);
+            }
+        }
+            
+        }
 
     }
     /**
@@ -102,6 +124,14 @@ public class Kentta {
 
     public void piirraUudelleen(Component component) {
         component.repaint();
+    }
+    public void setPisteet(int pisteet)
+    {
+        this.pisteet=pisteet;
+    }
+    public int getPisteet()
+    {
+        return this.pisteet;
     }
 
 }

@@ -33,9 +33,15 @@ public class NappaimistonKuuntelija implements KeyListener {
     public void haeKuvio(Kuvio kuvio) {
         this.kuvio = kuvio;
     }
+    public void poistaKuvio()
+    {
+        this.kuvio=null;
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if(this.kuvio!=null)
+        {
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             kuvio.liikutaVasemmalle();
@@ -47,9 +53,10 @@ public class NappaimistonKuuntelija implements KeyListener {
             this.kuvio.kierra();
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            this.kuvio.liiku();
+            boolean b=this.kuvio.liiku();
         }
         component.repaint();
+        }
 
     }
 

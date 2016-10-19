@@ -19,7 +19,9 @@ public class Kayttoliittyma {
     private Kentta kentta;
     private JFrame frame;
     private Alusta a;
+    private Alusta b;
     private NappaimistonKuuntelija kuuntelija;
+    private JLabel pisteNaytto;
 
     /**
      * Olio saa luonnissa parametrinaan pelin kentän.
@@ -51,9 +53,23 @@ public class Kayttoliittyma {
         container.setLayout(layout);
 
         this.a = new Alusta(kentta);
+        a.setPuoli(1);
         container.add(a);
+        container.add(luoSivupaneeli());
         this.kuuntelija = new NappaimistonKuuntelija(a);
         frame.addKeyListener(kuuntelija);
+    }
+    private JPanel luoSivupaneeli() {
+        JPanel panel = new JPanel(new GridLayout(3, 1));
+        panel.setBorder(BorderFactory.createLineBorder(Color.white));
+        //panel.add(new JPanel());
+        this.b=new Alusta(kentta);
+        b.setPuoli(2);
+        panel.add(b);
+        this.pisteNaytto=new JLabel("Pisteitä on " + this.kentta.getPisteet(), JLabel.CENTER);
+        panel.add(pisteNaytto);
+        panel.add(new JLabel("<html><body><div style='text-align: center;'>Peli toimii nuolinäppäimillä.<br> nuoli ylöspäin kääntää kuvion, nuoli alaspäin nopeuttaa sen laskeutumista. Nuolet sivuille liikuttavat kuviota sivusuunnassa</body></html>", JLabel.CENTER));
+        return panel;
     }
     /**
      * Kutsuu kenttää, joka päivittää pelin näkymän.
@@ -61,6 +77,8 @@ public class Kayttoliittyma {
 
     public void paivita() {
         kentta.piirraUudelleen(a);
+        kentta.piirraUudelleen(b);
+        this.pisteNaytto.setText("Pisteitä on " + this.kentta.getPisteet());
     }
     /**
      * ilmoittaa näppäimistömnkuuntelijalle kuvion, käytetään uuden kuvion luonnin jälkeen.
@@ -69,6 +87,14 @@ public class Kayttoliittyma {
 
     public void tetriminoKuuntelijaan(Kuvio kuvio) {
         kuuntelija.haeKuvio(kuvio);
+    }
+    public void tetriminoKuuntelijasta()
+    {
+        kuuntelija.poistaKuvio();
+    }
+    public void lopetus()
+    {
+        this.pisteNaytto.setText("Peli loppui! Pisteitä "+ this.kentta.getPisteet());
     }
 
 }
