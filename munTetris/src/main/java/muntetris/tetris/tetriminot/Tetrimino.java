@@ -46,7 +46,7 @@ public abstract class Tetrimino {
         return this.palikat;
     }
 
-    public Palikka Oikealla() {
+    public Palikka oikealla() {
         Palikka oikealla = this.getPalikka(0); //palikat.get(0);
         for (int i = 1; i < 4; i++) {
             if (this.getPalikka(i).getX() > oikealla.getX()) {
@@ -56,7 +56,7 @@ public abstract class Tetrimino {
         return oikealla;
     }
 
-    public Palikka Vasemmalla() {
+    public Palikka vasemmalla() {
         Palikka vasemmalla = this.getPalikka(0);
         for (int i = 1; i < 4; i++) {
             if (this.getPalikka(i).getX() < vasemmalla.getX()) {
@@ -66,7 +66,7 @@ public abstract class Tetrimino {
         return vasemmalla;
     }
 
-    public Palikka Alhaalla() {
+    public Palikka alhaalla() {
         Palikka alhaalla = this.getPalikka(0);
         for (int i = 1; i < 4; i++) {
             if (this.getPalikka(i).getY() > alhaalla.getY()) {
@@ -75,10 +75,10 @@ public abstract class Tetrimino {
         }
         return alhaalla;
     }
-     public int Korkeus() {
+     public int korkeus() {
         int korkeus = 0;
-        int alin = this.Alhaalla().getY() + 1;
-        int ylin = this.Alhaalla().getY();
+        int alin = this.alhaalla().getY() + 1;
+        int ylin = this.alhaalla().getY();
 
         for (int i = 0; i < 4; i++) {
             if (this.getPalikka(i).getY() < ylin) {

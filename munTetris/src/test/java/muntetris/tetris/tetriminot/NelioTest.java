@@ -50,10 +50,26 @@ public class NelioTest {
     
     }
     @Test
+    public void alhaalla()
+    {
+        assertEquals(1, this.tetrimino.alhaalla().getY());
+    }
+    @Test
     public void palikanHaku()
     {
         ArrayList lista=this.tetrimino.palautaKuvio();
         assertEquals(this.tetrimino.getPalikka(3), lista.get(3));
         assertEquals(this.tetrimino.getPalikka(0), lista.get(0));
     }
+    @Test
+    public void korkeus()
+    {
+        assertEquals(2, this.tetrimino.korkeus());
+    }
+    public void sivuilla()
+    {
+        assertEquals(6, this.tetrimino.vasemmalla().getX());
+        assertEquals(7, this.tetrimino.oikealla().getX());
+    }
+    
 }

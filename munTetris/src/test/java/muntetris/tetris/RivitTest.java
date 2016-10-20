@@ -36,6 +36,13 @@ public class RivitTest {
     @Before
     public void setUp() {
         rivit=new Rivit();
+        rivit.lisaaPalikka(new Palikka(4, 4));
+        rivit.lisaaPalikka(new Palikka(4, 2));
+        rivit.lisaaPalikka(new Palikka(4, 5));
+        rivit.lisaaPalikka(new Palikka(3, 4));
+        rivit.lisaaPalikka(new Palikka(2, 5));
+        rivit.lisaaPalikka(new Palikka(4, 2));
+        rivit.lisaaPalikka(new Palikka(5, 4));
 
     }
     
@@ -46,24 +53,59 @@ public class RivitTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-  //  @Test
-    //public void hello() {}
+    @Test
+    public void lisaaminenJaHakeminen() {
+ 
+    assertEquals(7, rivit.PalikoidenMaara());
+    assertEquals(4, rivit.getPalikka(2).getX());
+    assertEquals(2, rivit.getPalikka(5).getY());
+    
+    
+    
+    }
+    
     @Test
     public void rivinPoisto()
     {
-        this.rivit.lisaaPalikka(new Palikka(1, 2));
-        this.rivit.lisaaPalikka(new Palikka(1, 1));
-        this.rivit.lisaaPalikka(new Palikka(1, 3));
-        this.rivit.lisaaPalikka(new Palikka(2, 2));
-        this.rivit.lisaaPalikka(new Palikka(2, 1));
-        this.rivit.poistaRivi(2);
-        for(int i=0;i<this.rivit.PalikoidenMaara(); i++)
+
+        this.rivit.poistaRivi(4);
+        assertEquals(4, rivit.PalikoidenMaara());
+        boolean testi=true;
+        for(int i=0; i<rivit.PalikoidenMaara(); i++)
         {
-            System.out.println("palikka arvolla " + rivit.getPalikka(i).getY()+ "jäljellä");
+            if(rivit.getPalikka(i).getY()==4)
+            {
+                testi=false;
+            }
+           
         }
+        assertEquals(true, testi);
+        assertEquals(3, rivit.getPalikka(0).getY());
+        
         
         
     }
+    @Test
+    public void rivitTayttyminen()
+    {
+        rivit.lisaaPalikka(new Palikka(0, 4));
+        rivit.lisaaPalikka(new Palikka(1, 4));
+        rivit.lisaaPalikka(new Palikka(2, 4));
+        rivit.lisaaPalikka(new Palikka(6, 4));
+        rivit.lisaaPalikka(new Palikka(7, 4));
+        rivit.lisaaPalikka(new Palikka(8, 4));
+        assertEquals(0, rivit.riviTaysi());
+        rivit.lisaaPalikka(new Palikka(9, 4));
+        assertEquals(4, rivit.riviTaysi());
+
+    }
     
+    @Test
+    public void suurinY()
+    {
+
+       assertEquals(5, rivit.suurinY());
+    }
+
    
 }

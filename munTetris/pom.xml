@@ -24,8 +24,8 @@
         <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
+                <source>1.7</source>
+                <target>1.7</target>
             </configuration>
             <version>3.3</version>
         </plugin>
@@ -36,9 +36,11 @@
             <configuration>
         <targetClasses>
             <param>muntetris.tetris.*</param>
+            <param>muntetris.kayttis.*</param>
         </targetClasses>
         <targetTests>
             <param>muntetris.tetris.*</param>
+            <param>muntetris.kayttis.*</param>
             
         </targetTests>
     </configuration>

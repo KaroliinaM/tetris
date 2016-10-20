@@ -59,4 +59,30 @@ public class PalikkaTest {
         palikka.yksiAlaspain();
         assertEquals(palikka.getY(), y+2);
     }
+    @Test
+    
+   public void vasemmalle()
+   {
+       int x=palikka.getX();
+       palikka.yksiVasemmalle();
+       palikka.yksiVasemmalle();
+       palikka.yksiVasemmalle();
+       assertEquals(x-3, palikka.getX());
+   }
+   @Test
+   public void oikealle()
+   {
+       int x=palikka.getX();
+       palikka.yksiOikealle();
+       palikka.yksiOikealle();
+       assertEquals(x+2, palikka.getX());
+       
+   }
+   @Test
+   public void ylospain()
+   {
+       int y=palikka.getY();
+       palikka.yksiYlospain();
+       assertEquals(y-1, palikka.getY());
+   }
 }

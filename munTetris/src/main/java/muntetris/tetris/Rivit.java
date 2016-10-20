@@ -120,8 +120,8 @@ public class Rivit {
         
     }
     /**
-     * Tätä pitää vielä miettiä.
-     * @param kuvio kuvio.
+     * tarkistaa, onko peli lopussa, eli löytyykö kentän ylälaidasta tavaraa.
+     * @return true, jos Y:n nollakordinaatissa on jotain.
      */
 
     public boolean onkoLoppu() {
@@ -136,41 +136,7 @@ public class Rivit {
 
     }
 
-    /**
-     * Metodi testaa, että onko tietylle kuviolle tilaa liikkua alaspäin.
-     *
-     * @param kuvio tähän paikkaan tuleva kuvio.
-     * @param k kenttä.
-     *
-     * @return palauttaa totuusarvon.
-     */
-//    public boolean onkoTilaa(Kuvio kuvio, Kentta k) {
-//        boolean palautettava;
-//
-//        int kierros = kuvio.sijaintiAlhaalla().getY() - k.getAlin();
-//        palautettava = true;
-//        for (int i = 0; i < kierros + 1; i++) {
-//            Rivi r = rivit.get(rivit.size() - (1 + kierros));
-//            int tila = kuvio.leveys(i);
-//            int kohta = kuvio.rivinLaita(i);
-//
-//            for (int j = 0; j < tila; j++) {
-//                if (r.annaPalikka(kohta + i) == false) {
-//                    palautettava = false;
-//                }
-//            }
-//        }
-//        return palautettava;
-        /**
-         * if (kierros == 0) { Rivi r = rivit.get(rivit.size() - 1);
-         *
-         * int tila = kuvio.leveys(0); int kohta =
-         * kuvio.sijaintiAlhaalla().getX();
-         *
-         * for (int i = 0; i < tila; i++) { if (r.annaPalikka(kohta + i) ==
-         * false) { palautettava = false; } } return palautettava; } else {
-         * return false; }*
-         */
+    
     
 
 }

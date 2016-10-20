@@ -5,15 +5,17 @@
  */
 package muntetris.tetris.tetriminot;
 
-import muntetris.tetris.tetriminot.Palikka;
-import muntetris.tetris.tetriminot.Kuvio;
 import java.util.ArrayList;
+import muntetris.tetris.Kentta;
+import muntetris.tetris.Rivit;
+import muntetris.tetris.tetriminot.Kuvio;
+import muntetris.tetris.tetriminot.Palikka;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -22,6 +24,7 @@ import static org.junit.Assert.*;
 public class KuvioTest {
 
     Kuvio kuvio;
+    Rivit rivit;
 
     public KuvioTest() {
     }
@@ -33,10 +36,16 @@ public class KuvioTest {
     @AfterClass
     public static void tearDownClass() {
     }
+    //Metodit alkavat olla riippuvaisia muistakin luokista, sen takia useamman olion luonti tässä, jottei tule nullpointerexceptionia
 
     @Before
     public void setUp() {
         kuvio = new Kuvio();
+        Kentta kentta=new Kentta();
+        rivit=new Rivit();
+        kentta.asetaRivit(rivit);
+       kuvio.haeKentta(kentta);
+       kentta.asetaKuvio(kuvio);
     }
 
     /**
@@ -45,63 +54,9 @@ public class KuvioTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    @Test
-    public void hello() {
-    }
 
-    @Test
-    public void hello1() {
-        System.out.println("Kuvio on" + kuvio.getTyyppi());
-    }
 
-    @Test
-    public void kuviomuodostuu() {
-
-        ArrayList lista = kuvio.kuviotesti();
-        int pituus = lista.size();
-
-        assertEquals(pituus, 4);
-    }
-
-    @Test
-
-    public void kuvioLiikkuuOikealle() {
-        int alku = kuvio.sijaintiOikealla().getX();
-        alku += 5;
-        if (alku > 10) {
-            alku = 10;
-        }
-        for (int i = 0; i < 5; i++) {
-            kuvio.liikutaOikealle();
-        }
-        int loppu = kuvio.sijaintiOikealla().getX();
-
-        assertEquals(alku, loppu);
-    }
-
-    @Test
-
-    public void kuvioLiikkuuVasemmalle() {
-        int alku = kuvio.sijaintiVasemmalla().getX();
-        alku -= 5;
-        for (int i = 0; i < 5; i++) {
-            kuvio.liikutaVasemmalle();
-        }
-        int loppu = kuvio.sijaintiVasemmalla().getX();
-
-        assertEquals(alku, loppu);
-    }
-
-    @Test
-
-    public void vasenLaita() {
-        for (int i = 0; i < 30; i++) {
-            kuvio.liikutaVasemmalle();
-        }
-        int sijainti = kuvio.sijaintiVasemmalla().getX();
-
-        assertEquals(sijainti, 0);
-    }
+    
 
     @Test
 
@@ -148,114 +103,57 @@ public class KuvioTest {
         assertEquals(testi, true);
 
     }
-
     @Test
 
-    public void pitkulanKierto() //testataan, siirtyykä palikan pääty kiertäessä ja palautuuko paikalleen
-    {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 1) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-
+    public void kuvioLiikkuuOikealle() {
+        int alku = kuvio.sijaintiOikealla().getX();
+        alku += 5;
+        if (alku > 9) {
+            alku = 9;
         }
-        //this.kuvio=haluttuKuvio(1);
-        //boolean testi=true;
-        Palikka alussa = kuvio.palikanSijainti(3);
-        int alussax = alussa.getX();
-        System.out.println(alussax);
-
-        kuvio.kierra();
-
-        Palikka valissa = kuvio.palikanSijainti(3);
-        int valissax = valissa.getX();
-        System.out.println(valissax);
-
-        if (alussax == valissax) {
-            testi = false;
+        for (int i = 0; i < 10; i++) {
+           this.kuvio.liikutaOikealle();
         }
+        int loppu =kuvio.sijaintiOikealla().getX();
 
-        kuvio.kierra();
+        assertEquals(alku, loppu);
+    }
 
-        Palikka lopussa = kuvio.palikanSijainti(3);
+@Test
 
-        int lopussax = lopussa.getX();
-
-        if (alussax != lopussax) {
-            testi = false;
+    public void kuvioLiikkuuVasemmalle() {
+        int alku = kuvio.sijaintiVasemmalla().getX();
+        alku -= 5;
+        for (int i = 0; i < 5; i++) {
+            kuvio.liikutaVasemmalle();
         }
+        int loppu = kuvio.sijaintiVasemmalla().getX();
 
-        assertEquals(true, testi);
-
+        assertEquals(alku, loppu);
     }
 
     @Test
 
-    public void lOikealleKierto() {
-
-        //ei toimi, ja lisäksi pitäisi testata eri luokassa
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 2) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
+    public void laidat() {
+        for (int i = 0; i < 30; i++) {
+            kuvio.liikutaVasemmalle();
+        }
+        
+        assertEquals(kuvio.sijaintiVasemmalla().getX(), 0);
+        for (int i = 0; i < 30; i++) {
+            kuvio.liikutaOikealle();
 
         }
-        //this.kuvio=haluttuKuvio(2);
-        //boolean testi=true;
-
-        Palikka alussa = kuvio.palikanSijainti(3);
-        int alussax = alussa.getX();
-
-        for (int i = 0; i < 2; i++) {
-
-            kuvio.kierra();
-
-            Palikka valissa = kuvio.palikanSijainti(3);
-            int valissax = valissa.getX();
-
-            if (alussax == valissax) {
-                //testi = false;
-            }
-            alussax = valissax;
-        }
-
-        kuvio.kierra();
-
-        Palikka lopussa = kuvio.palikanSijainti(3);
-        alussax = alussa.getX();
-
-        int lopussax = lopussa.getX();
-
-        if (alussax != lopussax) {
-            // testi = false;
-        }
-
-        assertEquals(true, testi);
-
+        assertEquals(9, kuvio.sijaintiOikealla().getX());
     }
+
+   
 
     @Test
 
     public void pysyyRajoissa() //testataan, että jos kuviota kierretään kentän laidassa, pysyykö se kentällä
     {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 1) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-
-        }
+        boolean testi = true;
 
         for (int i = 0; i < 30; i++) {
             kuvio.liikutaOikealle();
@@ -263,7 +161,15 @@ public class KuvioTest {
         kuvio.kierra();
 
         int oikealla = kuvio.sijaintiOikealla().getX();
-        if (oikealla > 10) {
+        if (oikealla > 9) {
+            testi = false;
+        }
+        for (int i = 0; i < 30; i++) {
+            kuvio.liikutaVasemmalle();
+        }
+        kuvio.kierra();
+        int vasemmalla = kuvio.sijaintiVasemmalla().getX();
+        if (vasemmalla < 0) {
             testi = false;
         }
 
@@ -272,62 +178,42 @@ public class KuvioTest {
     }
 
     @Test
-
-    public void pysyyRajoissa2() //kats.edellinen, toinen laita
-    {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 2) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-
-        }
-
-        for (int i = 0; i < 30; i++) {
-            kuvio.liikutaVasemmalle();
-        }
-        for (int i = 0; i < 3; i++) {
-            this.kuvio.kierra();
-
-            int vasemmalla = kuvio.sijaintiVasemmalla().getX();
-            if (vasemmalla < 0) {
-                testi = false;
-            }
-        }
-
-        assertEquals(true, testi);
-
-    }
-
-    @Test
-    public void kuvionKorkeus() {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 1) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-
-        }
-        assertEquals(this.kuvio.kuvionKorkeus(), 4);
-        this.kuvio.kierra();
-        assertEquals(this.kuvio.kuvionKorkeus(), 1);
-
-    }
-
-    @Test
-    public void liikuttaminen() {
+    public void liikuttaminenAlaspain() {
         //kuvio=new Kuvio();
         int y = kuvio.sijaintiAlhaalla().getY();
         for (int i = 0; i < 5; i++) {
             kuvio.liiku();
         }
         assertEquals(kuvio.sijaintiAlhaalla().getY(), y + 5);
+    }
+    @Test
+    public void kentallaOlevatPalikat()
+    {
+        rivit.lisaaPalikka(new Palikka(3, 0));
+        rivit.lisaaPalikka(new Palikka(3, 1));
+        rivit.lisaaPalikka(new Palikka(3, 2));
+        rivit.lisaaPalikka(new Palikka(3, 3));
+        for(int i=0; i<7; i++)
+        {
+            this.kuvio.liikutaVasemmalle();
+        }
+        assertEquals(4, this.kuvio.sijaintiVasemmalla().getX());
+        rivit.lisaaPalikka(new Palikka(4, 6));
+        rivit.lisaaPalikka(new Palikka(5, 6));
+        rivit.lisaaPalikka(new Palikka(6, 6));
+        rivit.lisaaPalikka(new Palikka(7, 6));
+        boolean testi;
+        for(int i=0; i<7; i++)
+        {
+            testi=this.kuvio.liiku();
+        }
+        assertEquals(5, this.kuvio.sijaintiAlhaalla().getY());
+        
+    }
+    @Test 
+    public void kierto()
+    {
+        
     }
 
 }

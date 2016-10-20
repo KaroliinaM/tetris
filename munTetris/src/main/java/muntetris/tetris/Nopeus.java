@@ -32,7 +32,6 @@ public class Nopeus {
             if(pisteet%this.kierrokset!=0)
             {
                this.laskettu=false;
-               System.out.println("hei");
             }
         }
         else

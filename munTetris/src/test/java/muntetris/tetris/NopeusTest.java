@@ -31,7 +31,7 @@ public class NopeusTest {
     
     @Before
     public void setUp() {
-        nopeus=new Nopeus(1000);
+        nopeus=new Nopeus(1000, 5);
     }
     
     @After
@@ -41,8 +41,17 @@ public class NopeusTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    // @Test
-    // public void hello() {}
-    @Test
-    public void
+     @Test
+     public void napeudenLaskeminen() {
+         int pisteet=4;
+         nopeus.laskeNopeus(pisteet);
+         assertEquals(1000, nopeus.getNopeus());
+         pisteet++;
+         nopeus.laskeNopeus(pisteet);
+         assertEquals(750, nopeus.getNopeus());
+         nopeus.laskeNopeus(pisteet);
+         assertEquals(750, nopeus.getNopeus());
+         
+     }
+    
 }

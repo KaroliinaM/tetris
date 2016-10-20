@@ -91,9 +91,9 @@ public class Kuvio {
         this.testaaRajat();
         if (!this.kentta.onkoTilaa()) {
             for (int i = 0; i < 4; i++) {
-                if (this.sijaintiVasemmalla().getX() > 0) {
+               // if (this.sijaintiVasemmalla().getX() > 0) {
                     this.tetrimino.getPalikka(i).yksiVasemmalle();
-                }
+               // }
             }
         }
     }
@@ -120,7 +120,7 @@ public class Kuvio {
      * @return x-kordinaatti.
      */
     public Palikka sijaintiOikealla() {
-        return this.tetrimino.Oikealla();
+        return this.tetrimino.oikealla();
     }
 
     /**
@@ -128,7 +128,7 @@ public class Kuvio {
      * @return x-kordinaatti.
      */
     public Palikka sijaintiVasemmalla() {
-        return this.tetrimino.Vasemmalla();
+        return this.tetrimino.vasemmalla();
     }
 
     /**
@@ -136,7 +136,7 @@ public class Kuvio {
      * @return y-kordinaatti.
      */
     public Palikka sijaintiAlhaalla() {
-        return this.tetrimino.Alhaalla();
+        return this.tetrimino.alhaalla();
     }
 
     /**
@@ -144,7 +144,7 @@ public class Kuvio {
      * @return korkeus palikoina.
      */
     public int kuvionKorkeus() {
-        return this.tetrimino.Korkeus();
+        return this.tetrimino.korkeus();
     }
 
     /**

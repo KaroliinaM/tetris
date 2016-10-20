@@ -57,22 +57,62 @@ public class PitkaTest {
         assertEquals(this.tetrimino.getPalikka(0), lista.get(0));
     }
     @Test
+    public void korkeus()
+    {
+        assertEquals(4, this.tetrimino.korkeus());
+    }
+    @Test
+    public void alhaalla()
+    {
+        assertEquals(3, this.tetrimino.alhaalla().getY());
+    }
+    public void sivuilla()
+    {
+        assertEquals(6, this.tetrimino.vasemmalla().getX());
+        assertEquals(6, this.tetrimino.oikealla().getX());
+    }
+    @Test
     public void kierto()
     {
         boolean testi=true;
-        int x=this.tetrimino.getPalikka(0).getX();
-        int y=this.tetrimino.getPalikka(0).getY();
+        int x1=this.tetrimino.getPalikka(0).getX();
+        int y1=this.tetrimino.getPalikka(0).getY();
+        int x2=this.tetrimino.getPalikka(1).getX();
+        int y2=this.tetrimino.getPalikka(1).getY();
+        int x3=this.tetrimino.getPalikka(2).getX();
+        int y3=this.tetrimino.getPalikka(2).getY();
+        int x4=this.tetrimino.getPalikka(3).getX();
+        int y4=this.tetrimino.getPalikka(3).getY();
+        
         tetrimino.kierra();
-        if(x==this.tetrimino.getPalikka(0).getX()&& y==this.tetrimino.getPalikka(0).getY())
+        if(x1==this.tetrimino.getPalikka(0).getX()&& y1==this.tetrimino.getPalikka(0).getY())
+        {
+            testi=false;
+        }
+        if(x4==this.tetrimino.getPalikka(3).getX()&& y4==this.tetrimino.getPalikka(3).getY())
         {
             testi=false;
         }
         assertEquals(testi, true);
+        assertEquals(1, tetrimino.korkeus());
         tetrimino.kierra();
-        if(x!=this.tetrimino.getPalikka(0).getX()&& y!=this.tetrimino.getPalikka(0).getY())
+        if(x1!=this.tetrimino.getPalikka(0).getX()|| y1!=this.tetrimino.getPalikka(0).getY())
+        {
+            testi=false;
+        }
+        if(x2!=this.tetrimino.getPalikka(1).getX()|| y2!=this.tetrimino.getPalikka(1).getY())
+        {
+            testi=false;
+        }
+        if(x3!=this.tetrimino.getPalikka(2).getX()|| y3!=this.tetrimino.getPalikka(2).getY())
+        {
+            testi=false;
+        }
+        if(x4!=this.tetrimino.getPalikka(3).getX()|| y4!=this.tetrimino.getPalikka(3).getY())
         {
             testi=false;
         }
         assertEquals(testi, true);
+        assertEquals(4, tetrimino.korkeus());
     }
 }
