@@ -30,8 +30,11 @@ public class Kuvio {
 
     /**
      * Konstruktori arpoo, millainen kuvio luodaan.
+     *
+     * @param kentta pelin kenttä.
      */
-    public Kuvio() {
+    public Kuvio(Kentta kentta) {
+        this.kentta = kentta;
         Random arpa = new Random();
         tyyppi = arpa.nextInt(7);
         switch (tyyppi) {
@@ -56,18 +59,7 @@ public class Kuvio {
             case 6:
                 this.tetrimino = new Kolmipiikki();
                 break;
-            default:
-                break;
         }
-    }
-
-    /**
-     * Plauttaa tetriminon tyypin.
-     *
-     * @return numero, joka arvotaan konstruktorissa.
-     */
-    public int getTyyppi() {
-        return tyyppi;
     }
 
     /**
@@ -77,24 +69,17 @@ public class Kuvio {
      * @return Palikka-olio.
      */
     public Palikka palikanSijainti(int x) {
-        Palikka palautettava = this.tetrimino.getPalikka(x); //palikat.get(x);
-        return palautettava;
+        return this.tetrimino.getPalikka(x);
     }
 
     /**
      * Kuvio liikkuu oikealle yhden yksikön verran.
      */
     public void liikutaOikealle() {
-        for (int i = 0; i < 4; i++) {
-            this.tetrimino.getPalikka(i).yksiOikealle();
-        }
+        this.tetrimino.oikealle();
         this.testaaRajat();
         if (!this.kentta.onkoTilaa()) {
-            for (int i = 0; i < 4; i++) {
-               // if (this.sijaintiVasemmalla().getX() > 0) {
-                    this.tetrimino.getPalikka(i).yksiVasemmalle();
-               // }
-            }
+            this.tetrimino.vasemmalle();
         }
     }
 
@@ -102,21 +87,16 @@ public class Kuvio {
      * Kuvio liikkuu vasemmalle yhden yksikön verran.
      */
     public void liikutaVasemmalle() {
-        for (int i = 0; i < 4; i++) {
-            this.tetrimino.getPalikka(i).yksiVasemmalle();
-        }
+        this.tetrimino.vasemmalle();
         this.testaaRajat();
         if (!this.kentta.onkoTilaa()) {
-            for (int i = 0; i < 4; i++) {
-                if (this.sijaintiOikealla().getX() < 9) {
-                    this.tetrimino.getPalikka(i).yksiOikealle();
-                }
-            }
+            this.tetrimino.oikealle();
         }
     }
 
     /**
      * Palauttaa pisteen, missä tetrimino on oikealta katsottuna.
+     *
      * @return x-kordinaatti.
      */
     public Palikka sijaintiOikealla() {
@@ -125,6 +105,7 @@ public class Kuvio {
 
     /**
      * Palauttaa pisteen, missä tetrimino on vasemmalta katsottuna.
+     *
      * @return x-kordinaatti.
      */
     public Palikka sijaintiVasemmalla() {
@@ -133,18 +114,11 @@ public class Kuvio {
 
     /**
      * Palauttaa tetriminon alimman pisteen.
+     *
      * @return y-kordinaatti.
      */
     public Palikka sijaintiAlhaalla() {
         return this.tetrimino.alhaalla();
-    }
-
-    /**
-     * Palauttaa tetriminon korkeuden.
-     * @return korkeus palikoina.
-     */
-    public int kuvionKorkeus() {
-        return this.tetrimino.korkeus();
     }
 
     /**
@@ -162,41 +136,35 @@ public class Kuvio {
             this.tetrimino.kierra();
             this.testaaRajat();
             if (!this.kentta.onkoTilaa()) {
-                this.tetrimino.kierra();
-                this.tetrimino.kierra();
-                this.tetrimino.kierra();
+                this.tetrimino.kierraTakaisin();
             }
         }
         if (this.tyyppi == 3) {
             this.tetrimino.kierra();
             this.testaaRajat();
             if (!this.kentta.onkoTilaa()) {
-                this.tetrimino.kierra();
-                this.tetrimino.kierra();
-                this.tetrimino.kierra();
+                this.tetrimino.kierraTakaisin();
             }
         }
         if (this.tyyppi == 4) {
             this.tetrimino.kierra();
             this.testaaRajat();
             if (!this.kentta.onkoTilaa()) {
-                this.tetrimino.kierra();
+                this.tetrimino.kierraTakaisin();
             }
         }
         if (this.tyyppi == 5) {
             this.tetrimino.kierra();
             this.testaaRajat();
             if (!this.kentta.onkoTilaa()) {
-                this.tetrimino.kierra();
+                this.tetrimino.kierraTakaisin();
             }
         }
         if (this.tyyppi == 6) {
             this.tetrimino.kierra();
             this.testaaRajat();
             if (!this.kentta.onkoTilaa()) {
-                this.tetrimino.kierra();
-                this.tetrimino.kierra();
-                this.tetrimino.kierra();
+                this.tetrimino.kierraTakaisin();
             }
         }
     }
@@ -205,37 +173,27 @@ public class Kuvio {
      * Pitää tetriminon kentän rajoissa.
      */
     public void testaaRajat() {
-        while (this.sijaintiOikealla().getX() > 9) {
+        while (this.tetrimino.oikealla().getX() > 9) {
             this.liikutaVasemmalle();
         }
-        while (this.sijaintiVasemmalla().getX() < 0) {
+        while (this.tetrimino.vasemmalla().getX() < 0) {
             this.liikutaOikealle();
         }
     }
 
     /**
      * Liikuttaa tetriminoa alaspäin.
+     *
+     * @return totuusarvon, jolla peli testaa, onko palikka liikkunut alas asti.
      */
     public boolean liiku() {
         if (this.sijaintiAlhaalla().getY() < 18) {
-            for (int i = 0; i < 4; i++) {
-                this.tetrimino.getPalikka(i).yksiAlaspain();
-            }
+            this.tetrimino.alas();
             if (!this.kentta.onkoTilaa()) {
-                this.takaisin();
+                this.tetrimino.ylos();
                 return true;
             }
         }
         return false;
-    }
-
-    public void takaisin() {
-        for (int i = 0; i < 4; i++) {
-            this.tetrimino.getPalikka(i).yksiYlospain();
-        }
-    }
-
-    public void haeKentta(Kentta kentta) {
-        this.kentta = kentta;
     }
 }

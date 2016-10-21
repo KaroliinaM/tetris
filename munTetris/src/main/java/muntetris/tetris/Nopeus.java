@@ -6,8 +6,9 @@
 package muntetris.tetris;
 
 /**
+ * Ohjaa pelin nopeutta. Olisi ehkä toiminut metodinakin.
  *
- * @author kape
+ * @author Karoliina
  */
 public class Nopeus {
 
@@ -15,34 +16,45 @@ public class Nopeus {
     private boolean laskettu;
     private int kierrokset;
 
+    /**
+     * asettaa muuttujan alkuarvon.
+     *
+     * @param alkunopeus nopeus millisekunteina.
+     * @param kierrokset kuinka monen kierroksen jälkeen vauhtia nopeutetaan.
+     */
+
     public Nopeus(int alkunopeus, int kierrokset) {
         this.nopeus = alkunopeus;
-        this.laskettu=true;
-        this.kierrokset=kierrokset;
+        this.laskettu = true;
+        this.kierrokset = kierrokset;
 
     }
-    public int getNopeus()
-    {
+
+    /**
+     * Kertoo nopeuden.
+     *
+     * @return pelin nopeus millisekunteina.
+     */
+    public int getNopeus() {
         return nopeus;
     }
-    public void laskeNopeus(int pisteet)
-    {
-        if(laskettu)
-        {
-            if(pisteet%this.kierrokset!=0)
-            {
-               this.laskettu=false;
+
+    /**
+     * leikkaa millisekunneista neljsosan ja merkitsee että nopeutta on
+     * nostettu.
+     *
+     * @param pisteet pelin pisteet.
+     */
+    public void laskeNopeus(int pisteet) {
+        if (laskettu) {
+            if (pisteet % this.kierrokset != 0) {
+                this.laskettu = false;
             }
+        } else if (pisteet % this.kierrokset == 0) {
+            this.nopeus *= 0.75;
+            this.laskettu = true;
         }
-        else
-        {
-            if(pisteet%this.kierrokset==0)
-            {
-                this.nopeus*=0.75;
-               this.laskettu=true; 
-            }
-        }
-        
+
     }
 
 }

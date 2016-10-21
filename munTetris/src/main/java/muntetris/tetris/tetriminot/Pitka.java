@@ -22,10 +22,10 @@ public class Pitka extends Tetrimino {
 //    private Palikka kolmaspalikka;
 //    private Palikka neljaspalikka;
     private int kierto;
+
     /**
      * Kuvio luodaan arraylistina konstruktorissa.
      */
-
     public Pitka() {
         super();
         this.kierto = 0;
@@ -34,12 +34,13 @@ public class Pitka extends Tetrimino {
         palikat.add(new Palikka(6, 2));
         palikat.add(new Palikka(6, 3));
     }
+
     /**
      * Palauttaa tietyn palikan kuviosta.
+     *
      * @param x palikan numero.
      * @return palikka.
      */
-
 //    public Palikka getPalikka(int x) {
 //        Palikka palautettava = this.palikat.get(x);
 //
@@ -56,7 +57,6 @@ public class Pitka extends Tetrimino {
     /**
      * Kiertää kuvion.
      */
-
     public void kierra() {
         if (kierto == 0) {
 
@@ -88,6 +88,14 @@ public class Pitka extends Tetrimino {
 
             kierto--;
         }
+    }
+
+    /**
+     * kiertää tetriminon takaisin alkuasentoon.
+     */
+    @Override
+    public void kierraTakaisin() {
+        this.kierra();
     }
 
 }

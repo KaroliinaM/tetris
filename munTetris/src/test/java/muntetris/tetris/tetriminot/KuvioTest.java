@@ -40,11 +40,11 @@ public class KuvioTest {
 
     @Before
     public void setUp() {
-        kuvio = new Kuvio();
         Kentta kentta=new Kentta();
+        kuvio = new Kuvio(kentta);
+        
         rivit=new Rivit();
         kentta.asetaRivit(rivit);
-       kuvio.haeKentta(kentta);
        kentta.asetaKuvio(kuvio);
     }
 
@@ -55,54 +55,6 @@ public class KuvioTest {
     // The methods must be annotated with annotation @Test. For example:
     //
 
-
-    
-
-    @Test
-
-    public void kuvionArvonta() //testataan ääreisarvoilla että arvonta toimii
-    {
-        boolean testi = false;
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 0) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-
-        }
-        testi = false;
-
-        while (testi == false) {
-            if (kuvio.getTyyppi() != 5) {
-                this.kuvio = new Kuvio();
-
-            } else {
-                testi = true;
-            }
-
-        }
-
-        assertEquals(testi, true);
-    }
-
-    @Test
-
-    public void kuvionArvonta2() //testataan että kuvion luonnin ääreisarvot pitävät
-    {
-        boolean testi = true;
-        for (int i = 0; i < 50; i++) {
-            this.kuvio = new Kuvio();
-            if (this.kuvio.getTyyppi() < 0 && this.kuvio.getTyyppi() > 6) {
-                testi = false;
-            }
-
-        }
-
-        assertEquals(testi, true);
-
-    }
     @Test
 
     public void kuvioLiikkuuOikealle() {

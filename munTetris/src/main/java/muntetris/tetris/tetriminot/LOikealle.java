@@ -22,10 +22,10 @@ public class LOikealle extends Tetrimino {
 //    private Palikka kolmaspalikka;
 //    private Palikka neljaspalikka;
     private int kierto;
+
     /**
      * Kuvio luodaan arraylistina konstruktorissa.
      */
-
     public LOikealle() {
         super();
         this.kierto = 0;
@@ -34,12 +34,13 @@ public class LOikealle extends Tetrimino {
         palikat.add(new Palikka(6, 1));
         palikat.add(new Palikka(6, 2));
     }
+
     /**
      * Palauttaa tietyn palikan kuviosta.
+     *
      * @param x palikan numero.
      * @return palikka.
      */
-
 //    public Palikka getPalikka(int x) {
 //        Palikka palautettava = this.palikat.get(x);
 //
@@ -56,7 +57,6 @@ public class LOikealle extends Tetrimino {
     /**
      * Kiertää kuvion.
      */
-
     public void kierra() {
         if (kierto == 0) {
             this.palikat.get(0).setX(this.palikat.get(0).getX() + 1);
@@ -113,6 +113,16 @@ public class LOikealle extends Tetrimino {
             kierto = 0;
         }
 
+    }
+
+    /**
+     * kiertää tetriminon takaisin alkuasentoon.
+     */
+    @Override
+    public void kierraTakaisin() {
+        for (int i = 0; i < 3; i++) {
+            this.kierra();
+        }
     }
 
 }

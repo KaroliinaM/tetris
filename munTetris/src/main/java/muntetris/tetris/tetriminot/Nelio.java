@@ -24,7 +24,6 @@ public class Nelio extends Tetrimino {
     /**
      * Kuvio luodaan arraylistina konstruktorissa.
      */
-
     public Nelio() {
         super();
         palikat.add(new Palikka(6, 0));
@@ -33,12 +32,13 @@ public class Nelio extends Tetrimino {
         palikat.add(new Palikka(7, 1));
 
     }
+
     /**
      * Palauttaa tietyn palikan kuviosta.
+     *
      * @param x palikan numero.
      * @return palikka.
      */
-     
 
 //    public Palikka getPalikka(int x) {
 //        Palikka palautettava = this.palikat.get(x);
@@ -56,9 +56,12 @@ public class Nelio extends Tetrimino {
     /**
      * kiertää kuvion.
      */
-
     public void kierra() {
 
+    }
+
+    @Override
+    public void kierraTakaisin() {
     }
 
 }

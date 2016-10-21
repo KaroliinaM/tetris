@@ -22,10 +22,10 @@ public class SuunnikasVasemmalle extends Tetrimino {
 //    private Palikka kolmaspalikka;
 //    private Palikka neljaspalikka;
     private int kierto;
+
     /**
      * Kuvio luodaan arraylistina konstruktorissa.
      */
-
     public SuunnikasVasemmalle() {
         super();
         this.kierto = 0;
@@ -34,14 +34,13 @@ public class SuunnikasVasemmalle extends Tetrimino {
         palikat.add(new Palikka(7, 1));
         palikat.add(new Palikka(8, 1));
     }
-    
+
     /**
      * Palauttaa tietyn palikan kuviosta.
+     *
      * @param x palikan numero.
      * @return palikka.
      */
-    
-
 //    public Palikka getPalikka(int x) {
 //        Palikka palautettava = this.palikat.get(x);
 //
@@ -58,17 +57,16 @@ public class SuunnikasVasemmalle extends Tetrimino {
     /**
      * Kiertää kuvion.
      */
-
     public void kierra() {
         if (kierto == 0) {
 
-            this.palikat.get(0).setX(this.palikat.get(0).getX()+1);
+            this.palikat.get(0).setX(this.palikat.get(0).getX() + 1);
             this.palikat.get(0).setY(this.palikat.get(0).getY());
 
             this.palikat.get(1).setX(this.palikat.get(1).getX());
             this.palikat.get(1).setY(this.palikat.get(1).getY() - 1);
 
-            this.palikat.get(2).setX(this.palikat.get(2).getX()-1);
+            this.palikat.get(2).setX(this.palikat.get(2).getX() - 1);
             this.palikat.get(2).setY(this.palikat.get(2).getY());
 
             this.palikat.get(3).setX(this.palikat.get(3).getX() - 2);
@@ -82,7 +80,7 @@ public class SuunnikasVasemmalle extends Tetrimino {
             this.palikat.get(1).setX(this.palikat.get(1).getX());
             this.palikat.get(1).setY(this.palikat.get(1).getY() + 1);
 
-            this.palikat.get(2).setX(this.palikat.get(2).getX()+1);
+            this.palikat.get(2).setX(this.palikat.get(2).getX() + 1);
             this.palikat.get(2).setY(this.palikat.get(2).getY());
 
             this.palikat.get(3).setX(this.palikat.get(3).getX() + 2);
@@ -91,6 +89,14 @@ public class SuunnikasVasemmalle extends Tetrimino {
             kierto--;
         }
 
+    }
+
+    /**
+     * kiertää tetriminon takaisin alkuasentoon.
+     */
+    @Override
+    public void kierraTakaisin() {
+        this.kierra();
     }
 
 }

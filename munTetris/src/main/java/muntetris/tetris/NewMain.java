@@ -9,16 +9,17 @@ import muntetris.kayttis.Kayttoliittyma;
 
 /**
  * Pääluokka.
+ *
  * @author kmietola
  */
 public class NewMain {
 
     /**
      * käynnistää pelin.
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
 
         Peli p = new Peli();
 

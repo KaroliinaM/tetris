@@ -11,37 +11,45 @@ import muntetris.tetris.Kentta;
 
 /**
  * paneeli, johon itse peli piirtyy.
+ *
  * @author Karoliina
  */
 public class Alusta extends JPanel {
 
-    private Kentta kentta;
+    private Kayttoliittyma kayttis;
     private int palkki;
+
     /**
      * Luokka saa arvonaan kentän, jonka kauttaa määrittyy piirrettävien elementtien sijainti.
-     * @param kentta 
+     *
+     * @param kayttis käyttöliittymä.
+     */
+    public Alusta(Kayttoliittyma kayttis) {
+        super.setBackground(Color.BLACK);
+        this.kayttis = kayttis;
+
+    }
+
+    /**
+     * Määrittää kumpaan paneeliin piirretään.
+     *
+     * @param kumpi paneelin numero.
      */
 
-    public Alusta(Kentta kentta) {
-        super.setBackground(Color.BLACK);
-        this.kentta = kentta;
-        
+    public void setPuoli(int kumpi) {
+        this.palkki = kumpi;
     }
-    public void setPuoli(int kumpi)
-    {
-        this.palkki=kumpi;
-    }
+
     /**
      * Metodi piirtää elementit kentälle.
-     * @param graphics 
+     *
+     * @param graphics
      */
-
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        kentta.getPiirtoalusta(this.palkki);
-        kentta.piirra(graphics);
+        kayttis.setPiirtoalusta(this.palkki);
+        kayttis.piirra(graphics);
     }
-    
 
 }

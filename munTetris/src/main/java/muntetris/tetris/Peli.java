@@ -35,23 +35,21 @@ public class Peli {
         this.loppu = false;
         this.kentta = new Kentta();
         this.rivit = new Rivit();
-        this.seuraavaKuvio = new Kuvio();
+        this.seuraavaKuvio = new Kuvio(kentta);
         kentta.asetaRivit(rivit);
         this.kentta.setPisteet(pisteet);
-        this.nopeus=new Nopeus(1024, 5);
+        this.nopeus = new Nopeus(1024, 5);
         this.kayttis = new Kayttoliittyma(kentta);
+        kayttis.setRivit(rivit);
         kayttis.run();
 
         while (loppu == false) {
             uusiKuvio = false;
             this.kuvio = seuraavaKuvio;
-            this.seuraavaKuvio = new Kuvio();
-            this.kuvio.haeKentta(kentta);
-            System.out.println("tyyppi on " + kuvio.getTyyppi());
-            System.out.println("seuraavan tyyppi on " + seuraavaKuvio.getTyyppi());
-            //this.kuvio.liiku();
+            this.seuraavaKuvio = new Kuvio(kentta);
             kentta.asetaKuvio(kuvio);
-            kentta.asetaSeuraavaKuvio(this.seuraavaKuvio);
+            kayttis.setKuvio(kuvio);
+            kayttis.setSeuraavaKuvio(this.seuraavaKuvio);
             kayttis.tetriminoKuuntelijaan(kuvio);
 
             while (uusiKuvio == false) {
@@ -88,12 +86,11 @@ public class Peli {
                     this.kentta.setPisteet(pisteet);
                     this.rivit.poistaRivi(rivitaynna);
 
+                }
+                kayttis.paivita();
 
             }
-            kayttis.paivita();
-           
-            }
-            
+
             System.out.println("pisteitä " + this.pisteet);
             System.out.println("pudotusaika " + this.nopeus.getNopeus());
 

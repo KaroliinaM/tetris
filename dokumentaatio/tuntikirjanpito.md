@@ -21,4 +21,6 @@ Päivä | Tunnit | Kuvaus
 17.10.2016 | 6h |projektin tekemistä
 18.10.2016 | 5h |projektin tekemistä
 19.10.2016 | 3h |luokkien hiomista
+20.10.2016 | 6h |testien tekemistä
+21.10.2016 | 6h |projektin viimeistelyä
 

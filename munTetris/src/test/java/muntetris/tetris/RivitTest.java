@@ -56,7 +56,7 @@ public class RivitTest {
     @Test
     public void lisaaminenJaHakeminen() {
  
-    assertEquals(7, rivit.PalikoidenMaara());
+    assertEquals(7, rivit.palikoidenMaara());
     assertEquals(4, rivit.getPalikka(2).getX());
     assertEquals(2, rivit.getPalikka(5).getY());
     
@@ -69,9 +69,9 @@ public class RivitTest {
     {
 
         this.rivit.poistaRivi(4);
-        assertEquals(4, rivit.PalikoidenMaara());
+        assertEquals(4, rivit.palikoidenMaara());
         boolean testi=true;
-        for(int i=0; i<rivit.PalikoidenMaara(); i++)
+        for(int i=0; i<rivit.palikoidenMaara(); i++)
         {
             if(rivit.getPalikka(i).getY()==4)
             {

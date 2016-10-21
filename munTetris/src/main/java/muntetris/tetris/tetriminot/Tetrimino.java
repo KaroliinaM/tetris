@@ -19,7 +19,6 @@ public abstract class Tetrimino {
     /**
      * varsinaisten tetriminoluokkien pitäisi yliajaa tämä.
      */
-
     public Tetrimino() {
         this.palikat = new ArrayList<Palikka>();
     }
@@ -41,11 +40,15 @@ public abstract class Tetrimino {
      *
      * @return lista palikoista.
      */
-
     public ArrayList palautaKuvio() {
         return this.palikat;
     }
 
+    /**
+     * palauttaa oikeanpuolimmaisen palikan.
+     *
+     * @return palikka.
+     */
     public Palikka oikealla() {
         Palikka oikealla = this.getPalikka(0); //palikat.get(0);
         for (int i = 1; i < 4; i++) {
@@ -56,6 +59,11 @@ public abstract class Tetrimino {
         return oikealla;
     }
 
+    /**
+     * palauttaa vasemmanpuolimmaisen palikan.
+     *
+     * @return palikka.
+     */
     public Palikka vasemmalla() {
         Palikka vasemmalla = this.getPalikka(0);
         for (int i = 1; i < 4; i++) {
@@ -66,6 +74,11 @@ public abstract class Tetrimino {
         return vasemmalla;
     }
 
+    /**
+     * palauttaa alimmaisen palikan.
+     *
+     * @return palikka.
+     */
     public Palikka alhaalla() {
         Palikka alhaalla = this.getPalikka(0);
         for (int i = 1; i < 4; i++) {
@@ -75,7 +88,13 @@ public abstract class Tetrimino {
         }
         return alhaalla;
     }
-     public int korkeus() {
+
+    /**
+     * palauttaa kuvion korkeuden.
+     *
+     * @return korkeus.
+     */
+    public int korkeus() {
         int korkeus = 0;
         int alin = this.alhaalla().getY() + 1;
         int ylin = this.alhaalla().getY();
@@ -90,8 +109,53 @@ public abstract class Tetrimino {
     }
 
     /**
+     * liikuttaa tetriminoa vasemmalle.
+     */
+    public void vasemmalle() {
+        for (int i = 0; i < 4; i++) {
+            this.getPalikka(i).yksiVasemmalle();
+        }
+
+    }
+
+    /**
+     * liikuttaa tetriminoa oikealle.
+     */
+    public void oikealle() {
+        for (int i = 0; i < 4; i++) {
+            this.getPalikka(i).yksiOikealle();
+        }
+
+    }
+
+    /**
+     * liikuttaa tetriminoa ylös.
+     */
+    public void ylos() {
+        for (int i = 0; i < 4; i++) {
+            this.getPalikka(i).yksiYlospain();
+        }
+    }
+
+    /**
+     * liikuttaa tetriminoa alas.
+     */
+    public void alas() {
+        for (int i = 0; i < 4; i++) {
+            this.getPalikka(i).yksiAlaspain();
+        }
+    }
+
+    /**
      * Kiertää tetriminon.
      */
     public abstract void kierra();
+
+    /**
+     * Kiertää tetriminon takaisin, esim tilanteesa jossa kierto ei onnistu
+     * tilanpuutteen takia.
+     */
+
+    public abstract void kierraTakaisin();
 
 }
